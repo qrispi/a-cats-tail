@@ -1,5 +1,5 @@
 import React, { useState } from "react";  
-import '../Choices/Choices.css'
+import './Choices.css'
 
 function Choices(){
 

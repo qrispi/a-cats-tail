@@ -1,5 +1,5 @@
 import React, { useState } from "react";  
-import '../Day/Day.css'
+import './Day.css'
 
 function Day(){
 

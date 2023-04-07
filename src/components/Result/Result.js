@@ -1,14 +1,16 @@
-import React, { useState } from "react";  
-import './Result.css'
+import React, { useState } from "react";
+import "./Result.css";
+import { NavLink } from "react-router-dom";
 
-function Result(){
-
+function Result() {
   return (
     <>
       <p>You chose free buffet. You floofy loaf!</p>
-      <button>CONTINUE</button>
+      <NavLink to="/">
+        <button>CONTINUE</button>
+      </NavLink>
     </>
-  )
-}
+  );
+};
 
 export default Result;

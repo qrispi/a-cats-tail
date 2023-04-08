@@ -18,7 +18,7 @@ function Choices() {
         <button>Evil Option Text</button>
       </NavLink>
 
-      <button>Consult The Cat Bible</button>
+      <button>Consult The Cat Fact Book</button>
     </>
   );
 }

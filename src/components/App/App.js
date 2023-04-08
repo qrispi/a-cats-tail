@@ -1,7 +1,7 @@
 import React from 'react';
 import './App.css';
 import Story from '../Story/Story';
-import Bible from '../Bible/Bible';
+import Book from '../Book/Book';
 
 function App() {
   return (
@@ -9,7 +9,7 @@ function App() {
       {/* <div className='play-screen'> */}
         <h1 className='title'>A Cat's Tail</h1>
         <Story />
-        <Bible />
+        <Book />
       {/* </div> */}
     </div>
   )

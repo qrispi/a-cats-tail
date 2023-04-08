@@ -33,6 +33,9 @@ function Story() {
       <Route path="/:dayNum/result">
         <Result />
       </Route>
+      <Route path="/finale">
+        <h2>Fin!</h2>
+      </Route>
       {/* </Switch> */}
     </>
   );

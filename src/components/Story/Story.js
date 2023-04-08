@@ -3,9 +3,11 @@ import "./Story.css";
 import Day from "../Day/Day";
 import Choices from "../Choices/Choices";
 import Result from "../Result/Result";
-import { Switch, Route } from "react-router-dom";
+import { Switch, Route, NavLink } from "react-router-dom";
+import { useSelector } from "react-redux";
 
 function Story() {
+  const dayNum = useSelector((state) => state.day.value);
   return (
     // <div className='intro'>
     //     <h2>Congrats, you adopted a cat!</h2>
@@ -18,17 +20,25 @@ function Story() {
     <>
       <Switch>
         <Route exact path="/">
+          <NavLink to={`/${dayNum}/day`}>
+            <button>Continue</button>
+          </NavLink>
+        </Route>
+        <Route path="/:dayNum/day">
           <Day />
         </Route>
-        <Route path="/choices">
+        <Route path="/:dayNum/choices">
           <Choices />
         </Route>
-        <Route path="/result">
+        <Route path="/:dayNum/result">
           <Result />
+        </Route>
+        <Route path="/finale">
+          <h2>Fin!</h2>
         </Route>
       </Switch>
     </>
   );
-};
+}
 
 export default Story;

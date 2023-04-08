@@ -2,7 +2,7 @@ import React from "react";
 import "./App.css";
 import Story from "../Story/Story";
 import Book from "../Book/Book";
-import { Route, Switch } from "react-router-dom";
+import { Route, Switch, Redirect } from "react-router-dom";
 
 function App() {
   return (
@@ -17,6 +17,7 @@ function App() {
           <h1>The Book of Cat</h1>
           <Book />
         </Route>
+        <Redirect from="/" to="/story" />
       </Switch>
       {/* </div> */}
     </div>

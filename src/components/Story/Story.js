@@ -19,21 +19,21 @@ function Story() {
     // </div>
     <>
       <Switch>
-        <Route exact path="/">
-          <NavLink to={`/${dayNum}/day`}>
+        <Route exact path="/story">
+          <NavLink to={`/story/${dayNum}/day`}>
             <button>Continue</button>
           </NavLink>
         </Route>
-        <Route path="/:dayNum/day">
+        <Route path="/story/:dayNum/day">
           <Day />
         </Route>
-        <Route path="/:dayNum/choices">
+        <Route path="/story/:dayNum/choices">
           <Choices />
         </Route>
-        <Route path="/:dayNum/result">
+        <Route path="/story/:dayNum/result">
           <Result />
         </Route>
-        <Route path="/finale">
+        <Route path="/story/finale">
           <h2>Fin!</h2>
         </Route>
       </Switch>

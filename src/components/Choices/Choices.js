@@ -8,17 +8,18 @@ function Choices() {
   return (
     <>
       <h3>What do you do?</h3>
-      <NavLink to={`/${dayNum}/result`}>
+      <NavLink to={`/story/${dayNum}/result`}>
         <button>Good Option Text</button>
       </NavLink>
-      <NavLink to={`/${dayNum}/result`}>
+      <NavLink to={`/story/${dayNum}/result`}>
         <button>Neutral Option Text</button>
       </NavLink>
-      <NavLink to={`/${dayNum}/result`}>
+      <NavLink to={`/story/${dayNum}/result`}>
         <button>Evil Option Text</button>
       </NavLink>
-
-      <button>Consult The Cat Fact Book</button>
+      <NavLink to="/book">
+        <button>Consult The Cat Fact Book</button>
+      </NavLink>
     </>
   );
 }

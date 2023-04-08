@@ -8,7 +8,7 @@ function Result() {
   const dayNum = useSelector((state) => state.day.value);
   const dispatch = useDispatch();
 
-  const getNextDay = dayNum < 7 ? `/${dayNum}/day` : "/finale";
+  const getNextDay = dayNum < 7 ? `/story/${dayNum}/day` : "/story/finale";
 
   return (
     <>

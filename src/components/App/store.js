@@ -1,6 +1,8 @@
-// import { configureStore } from '@reduxjs/toolkit';
+import { configureStore } from "@reduxjs/toolkit";
+import dayReducer from "../../features/daySlice";
 
-// export const store = configureStore({
-//   reducer: {
-//   },
-// });
+export const store = configureStore({
+  reducer: {
+    day: dayReducer,
+  },
+});

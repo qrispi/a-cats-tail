@@ -18,25 +18,25 @@ function Story() {
     //     </form>
     // </div>
     <>
-      {/* <Switch> */}
-      <Route exact path="/">
-        <NavLink to={`/${dayNum}/day`}>
-          <button>Continue</button>
-        </NavLink>
-      </Route>
-      <Route path="/:dayNum/day">
-        <Day />
-      </Route>
-      <Route path="/:dayNum/choices">
-        <Choices />
-      </Route>
-      <Route path="/:dayNum/result">
-        <Result />
-      </Route>
-      <Route path="/finale">
-        <h2>Fin!</h2>
-      </Route>
-      {/* </Switch> */}
+      <Switch>
+        <Route exact path="/">
+          <NavLink to={`/${dayNum}/day`}>
+            <button>Continue</button>
+          </NavLink>
+        </Route>
+        <Route path="/:dayNum/day">
+          <Day />
+        </Route>
+        <Route path="/:dayNum/choices">
+          <Choices />
+        </Route>
+        <Route path="/:dayNum/result">
+          <Result />
+        </Route>
+        <Route path="/finale">
+          <h2>Fin!</h2>
+        </Route>
+      </Switch>
     </>
   );
 }

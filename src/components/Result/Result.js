@@ -6,13 +6,14 @@ import { increment } from "../../features/daySlice";
 
 function Result() {
   const dayNum = useSelector((state) => state.day.value);
-  const dispatch = useDispatch()
+  const dispatch = useDispatch();
   return (
     <>
+      <p>Day {dayNum} results</p>
       <p>You chose free buffet. You floofy loaf!</p>
-      {/* <NavLink to="/"> */}
+      <NavLink to={`/${dayNum}/day`}>
         <button onClick={() => dispatch(increment())}>CONTINUE</button>
-      {/* </NavLink> */}
+      </NavLink>
     </>
   );
 }

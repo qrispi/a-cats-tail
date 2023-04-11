@@ -1,23 +1,32 @@
-import React from "react";
+import React, { useState } from "react";
 import "./Story.css";
 import Day from "../Day/Day";
 import Choices from "../Choices/Choices";
 import Result from "../Result/Result";
 import { Switch, Route, NavLink } from "react-router-dom";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch, useStore } from "react-redux";
+import { updateCatName } from "../../features/nameSlice";
 
 function Story() {
   const dayNum = useSelector((state) => state.day.value);
+  const checkCatName = useSelector((state) => state.catName.value)
+  console.log(checkCatName, updateCatName)
+  const dispatch = useDispatch();
+  const [ catName, setCatName ] = useState('')
   return (
-    // <div className='intro'>
-    //     <h2>Congrats, you adopted a cat!</h2>
-    //     <form className='name-form'>
-    //         <label htmlFor="nameInput" className='top-margin'>What's your cat's name?</label>
-    //         <input type="text" id="nameInput" className='top-margin' required/>
-    //         <button className='top-margin'>Continue</button>
-    //     </form>
-    // </div>
-    <>
+        <>
+
+    <div className='intro'>
+        <h2>Congrats, you adopted a cat!</h2>
+        <form className='name-form'>
+            <label htmlFor="nameInput" className='top-margin'>What's your cat's name?</label>
+            <input type="text" value={catName} onChange={(event) => setCatName(event.target.value)} id="nameInput" className='top-margin' required/>
+            <button className='top-margin' onClick={(event) => {
+                event.preventDefault() 
+                dispatch(updateCatName(catName))}}>Continue</button>
+        </form>
+    </div>
+
       <Switch>
         <Route exact path="/story">
           <NavLink to={`/story/${dayNum}/day`}>

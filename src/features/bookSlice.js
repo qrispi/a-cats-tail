@@ -5,7 +5,7 @@ export const bookSlice = createSlice({
   initialState: { facts:[] },
   reducers: {
     addFact: (state, action) => {
-      state.facts = [...state, action.payload];
+      state.facts = [...state.facts, action.payload];
     },
   },
 });

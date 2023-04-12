@@ -12,14 +12,14 @@ function Choices() {
   return (
     <>
       <h3>What do you do?</h3>
-      <NavLink to={`/story/${dayNum}/result`}>
-        <button onClick={() => dispatch(incrementCatMorality())}>Good Option Text</button>
+      <NavLink to={`/story/${dayNum + 1}/result/good`}>
+        <button id="goodButton" onClick={() => dispatch(incrementCatMorality())}>{story[dayNum].goodChoice}</button>
       </NavLink>
-      <NavLink to={`/story/${dayNum}/result`}>
-        <button>Neutral Option Text</button>
+      <NavLink to={`/story/${dayNum + 1}/result/neutral`}>
+        <button id="neutralButton">{story[dayNum].neutralChoice}</button>
       </NavLink>
-      <NavLink to={`/story/${dayNum}/result`}>
-        <button onClick={() => dispatch(decrementCatMorality())}>Evil Option Text</button>
+      <NavLink to={`/story/${dayNum + 1}/result/evil`}>
+        <button id="evilButton" onClick={() => dispatch(decrementCatMorality())}>{story[dayNum].evilChoice}</button>
       </NavLink>
       <NavLink to="/book">
         <button>Consult The Cat Fact Book</button>

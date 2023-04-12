@@ -17,7 +17,7 @@ function Story() {
   return (
         <>
 
-    <div className='intro'>
+    {/* <div className='intro'>
         <h2>Congrats, you adopted a cat!</h2>
         <form className='name-form'>
             <label htmlFor="nameInput" className='top-margin'>What's your cat's name?</label>
@@ -26,7 +26,7 @@ function Story() {
                 event.preventDefault() 
                 dispatch(updateCatName(catName))}}>Submit Name</button>
         </form>
-    </div>
+    </div> */}
 
       <Switch>
         <Route exact path="/story">
@@ -40,9 +40,7 @@ function Story() {
         <Route path="/story/:dayNum/choices">
           <Choices />
         </Route>
-        <Route path="/story/:dayNum/result">
-          <Result />
-        </Route>
+        <Route path="/story/:dayNum/result/:type" render={({match}) => <Result type={match.params.type}/>} />
         <Route path="/story/finale">
           <h2>Fin!</h2>
         </Route>

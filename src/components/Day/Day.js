@@ -10,9 +10,9 @@ function Day() {
 
   return (
     <>
-      <h2>DAY {dayNum}</h2>
-      <p>Something, Something, Dark Side!</p>
-      <NavLink to={`/story/${dayNum}/choices`}>
+      <h2>DAY {dayNum + 1}</h2>
+      <p>{story[dayNum].story}</p>
+      <NavLink to={`/story/${dayNum + 1}/choices`}>
         <button>CONTINUE</button>
       </NavLink>
     </>

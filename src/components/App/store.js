@@ -1,11 +1,11 @@
 import { configureStore } from "@reduxjs/toolkit";
 import dayReducer from "../../features/daySlice";
-import catNameReducer from "../../features/nameSlice"
+import catReducer from "../../features/catSlice"
 
 export const store = configureStore({
   reducer: {
     day: dayReducer,
-    catName: catNameReducer
+    cat: catReducer
   },
 });
 

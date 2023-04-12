@@ -5,6 +5,9 @@ import { useSelector } from "react-redux";
 
 function Day() {
   const dayNum = useSelector((state) => state.day.value);
+  const story = useSelector((state) => state.storyline);
+  const checkCatName = useSelector((state) => state.cat.name);
+
   return (
     <>
       <h2>DAY {dayNum}</h2>

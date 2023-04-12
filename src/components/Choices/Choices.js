@@ -6,6 +6,8 @@ import { incrementCatMorality, decrementCatMorality } from "../../features/catSl
 
 function Choices() {
   const dayNum = useSelector((state) => state.day.value);
+  const story = useSelector((state) => state.storyline);
+  const checkCatName = useSelector((state) => state.cat.name);
   const dispatch = useDispatch();
   return (
     <>

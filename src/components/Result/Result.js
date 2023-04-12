@@ -7,6 +7,8 @@ import { increment } from "../../features/daySlice";
 function Result() {
   const dayNum = useSelector((state) => state.day.value);
   const catMorality = useSelector((state) => state.cat.morality);
+  const story = useSelector((state) => state.storyline);
+  const checkCatName = useSelector((state) => state.cat.name);
   const dispatch = useDispatch();
 
   const getNextDay = dayNum < 7 ? `/story/${dayNum}/day` : "/story/finale";

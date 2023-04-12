@@ -9,10 +9,11 @@ import { updateCatName } from "../../features/catSlice";
 
 function Story() {
   const dayNum = useSelector((state) => state.day.value);
-  const checkCatName = useSelector((state) => state.cat.name)
-  console.log(checkCatName)
+  // const checkCatName = useSelector((state) => state.cat.name);
+  const story = useSelector((state) => state.storyline);
+  const [ catName, setCatName ] = useState('');
   const dispatch = useDispatch();
-  const [ catName, setCatName ] = useState('')
+
   return (
         <>
 

@@ -1,32 +1,58 @@
-export default start = {
-  catInfo: {
-    name: '',
-    img: '',
-    morality: 0,
+const storyline = [
+  {
+    story: "You notice that your cat, ${catName}, is behaving unusually. ${catName} seems to be able to solve puzzles and is listening to you more intently than ever. You have three choices:",
+    evilChoice: "Take ${catName} to the vet to see if there's something wrong with them.",
+    neutralChoice: "Ignore ${catName}'s behavior and continue your day as usual.",
+    goodChoice: "Try to teach ${catName} new tricks and see how much more intelligent they can become.",
+    evilReaction: "The vet finds nothing wrong with ${catName}, and you notice ${catName} is cross with you",
+    neutralReaction: "${catName} continues to demonstrate slightly enhanced intelligence but nothing significant happens.",
+    goodReaction: "${catName} becomes even more intelligent and is able to learn new tricks quickly. The owner gains ${catName}'s trust and friendship, which may come in handy in the future.",
   },
-  currentDay: 0,
-  decisions: {
-    day1: '',
-    day2: '',
-    day3: '',
-    day4: '',
-    day5: '',
-    day6: '',
-    day7: '',
+  {
+    story: "${catName} has developed the ability to communicate with humans. You are surprised to find that ${catName} can now speak to you in perfect English. You have three choices:",
+    evilChoice: "Interrogate ${catName} how they gained their abilities and what their plans are for the future.",
+    neutralChoice: "Pretend that nothing has happened and keep ${catName}'s secret to yourself. This could all just be a hallucination, after all.",
+    goodChoice: "Use ${catName}'s ability to communicate to your advantage, such as by asking for insider trading tips.",
+    evilReaction: "${catName} gets aggrivated by your insolence ",
+    neutralReaction: "${catName} continues to try to communicate with you but seems annoyed.",
+    goodReaction: "${catName} agrees to help the owner but warns them that there will be consequences if they abuse their power.",
   },
-  bookmarks: [
-    {id: 0, fact: ''}
-  ],
-  storyline: [
-    {
-      story: '',
-      evilChoice: '',
-      neutralChoice: '',
-      goodChoice: '',
-      evilReaction: '',
-      neutralReaction: '',
-      goodReaction: '',
-    },
-    // All 7 days populate here where index 0 is day 1, index 1 is day 2, etc.
-  ]
-}
+  {
+    story: "Use ${catName}'s enhanced senses to their advantage, such as by finding hidden treasure or solving a mystery.",
+    evilChoice: "Investigate the strange energy field in the park to see if it has any connection to ${catName}'s abilities.",
+    neutralChoice: "Test ${catName}'s limits by taking him on a sensory overload adventure, such as by going to a concert or visiting a crowded market.",
+    goodChoice: "Use ${catName}'s enhanced senses to their advantage, such as by finding hidden treasure or solving a mystery.",
+    evilReaction: "When getting closer to the energy field, Fluffly starts acting strange and ends up having a seizure.",
+    neutralReaction: "${catName} becomes overwhelmed and later recovers.",
+    goodReaction: " ${catName} locates all the missing people in the local surrounding area.",
+  },
+  {
+    story: "${catName}'s physical abilities have become even more enhanced, allowing them to run faster, jump higher, and climb better than any other cat.",
+    evilChoice: "Train ${catName} to become a ninja cat, capable of stealthily infiltrating any location.",
+    neutralChoice: "Use ${catName}'s abilities to compete in a cat show or a sporting event.",
+    goodChoice: "Test ${catName}'s limits by taking them on a dangerous adventure, such as by hiking up a mountain or going bungee jumping.",
+    evilReaction: "${catName} becomes a skilled ninja cat but is also involved in dangerous missions.",
+    neutralReaction: "${catName} wins the competition but is also targeted by people who want to exploit their abilities.",
+    goodReaction: "${catName} is able to complete the adventure successfully and becomes a popular meida figure to the world.",
+  },
+  {
+    story: "${catName} gains the ability of telekinesis, allowing them to move objects with their mind. You have three choices:",
+    evilChoice: "Coerce ${catName} into thievery by having them telekinetically pick the pockets of the townspeople.",
+    neutralChoice: "Use ${catName}'s telekinetic powers to fetch things for you from around the house without having to move from the couch.",
+    goodChoice: "Train ${catName} to control their powers and use them for good, such as by helping people in need or stopping small crimes around town.",
+    evilReaction: "${catName} starts to understand that if you want something, you can take it by force.",
+    neutralReaction: "${catName} becomes lazy and starts to rely too much on their powers.",
+    goodReaction: "${catName} becomes an neighborhood hero.",
+  },
+  {
+    story: "${catName} gains the ability to teleport, allowing them to instantly transport themselves and others to different locations. You have three choices:",
+    evilChoice: "Use ${catName}'s powers to teleport out entire bank vaults and steal priceless jewels.",
+    neutralChoice: "Use ${catName}'s teleportation powers to jump from luxury vacation spot to luxury vacation spot.",
+    goodChoice: "Train ${catName} to control their powers and use them to help people around the country by teleporting them away from danger or stopping a disaster.",
+    evilReaction: "${catName} becomes disenchanted with human-kind and begins to entertain darker thoughts.",
+    neutralReaction: "${catName} becomes spoiled and loafish.",
+    goodReaction: "${catName} becomes a powerful force for good and nationally acclaimed superhero.",
+  },
+];
+
+export default storyline;

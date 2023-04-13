@@ -1,38 +1,25 @@
-import "./Finale.css";
-import { NavLink } from "react-router-dom";
 import { useSelector } from "react-redux";
 
-function Finale() {
+function FinaleType({alignment}) {
   const catMorality = useSelector((state) => state.cat.morality);
-  console.log(catMorality);
 
-  const getFinaleType = () => {
-    let finaleType;
-    if (catMorality > 3) {
-      finaleType = "good";
-    } else if (catMorality <= 3 && catMorality >= 0) {
-      finaleType = "neutral";
+  const getFinaleType = (alignment) => {
+    if (catMorality > 0) {
+      return "Fluffly wins the nobel peace prize for solving global warming";
+    } else if (catMorality === 0) {
+      return `Fluffy says "This isn't really working out anymore" and packs a bag. All you know is they "want to do something with Turquoise"`;
     } else {
-      finaleType = "bad";
+      return ("Fluffy becomes El Gato the most feared drug lord in the world");
     }
-    return finaleType;
   };
 
   return (
-    <div className="finale-container">
-      <h2>All Powerful!</h2>
-      <p>
-        Wow what a week! Frankly, youre exhausted and have no idea what to
-        expect next. As you get out of bed and head into the kitchen you see
-        Fluffy already sitting there, waiting for you. It looks like they have
-        something important to say...
-      </p>
-
-      <NavLink to={`/story/finale/${getFinaleType()}`}>
-        <button>Let's find out!</button>
-      </NavLink>
+    <div className="finale-type-container">
+      <p>{getFinaleType()}</p>
+      <button>Play Again</button>
+      <button>Read the Book</button>
     </div>
   );
 }
 
-export default Finale;
+export default FinaleType;

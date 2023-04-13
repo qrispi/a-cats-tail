@@ -7,7 +7,6 @@ import { Switch, Route, NavLink } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { updateCatName } from "../../features/catSlice";
 import Finale from "../Finale/Finale";
-import FinaleType from "../Finale/FinaleType";
 
 function Story() {
   const dayNum = useSelector((state) => state.day.value);
@@ -31,9 +30,25 @@ function Story() {
 
       <Switch>
         <Route exact path="/story">
-          <NavLink to={`/story/${dayNum}/day`}>
-            <button>Continue</button>
-          </NavLink>
+          {dayNum < 5 && (
+            <NavLink to={`/story/${dayNum}/day`}>
+              <button>Continue</button>
+            </NavLink>
+          )}
+          {dayNum > 5 && (
+            <>
+              <p>
+                Wow what a week! Frankly, youre exhausted and have no idea what
+                to expect next. As you get out of bed and head into the kitchen
+                you see Fluffy already sitting there, waiting for you. It looks
+                like they have something important to say...
+              </p>
+
+              <NavLink to={`/story/finale/`}>
+                <button>Let's find out!</button>
+              </NavLink>
+            </>
+          )}
         </Route>
         <Route path="/story/:dayNum/day">
           <Day />
@@ -45,11 +60,9 @@ function Story() {
           path="/story/:dayNum/result/:type"
           render={({ match }) => <Result type={match.params.type} />}
         />
+
         <Route exact path="/story/finale">
           <Finale />
-        </Route>
-        <Route exact path="/story/finale/:type">
-          <FinaleType />
         </Route>
       </Switch>
     </>

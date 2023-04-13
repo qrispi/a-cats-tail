@@ -1,15 +1,16 @@
 import { useSelector } from "react-redux";
+import "./Finale.css";
 
-function FinaleType({alignment}) {
+function Finale() {
   const catMorality = useSelector((state) => state.cat.morality);
 
-  const getFinaleType = (alignment) => {
+  const getFinaleType = () => {
     if (catMorality > 0) {
       return "Fluffly wins the nobel peace prize for solving global warming";
     } else if (catMorality === 0) {
       return `Fluffy says "This isn't really working out anymore" and packs a bag. All you know is they "want to do something with Turquoise"`;
     } else {
-      return ("Fluffy becomes El Gato the most feared drug lord in the world");
+      return "Fluffy becomes El Gato the most feared drug lord in the world";
     }
   };
 
@@ -22,4 +23,4 @@ function FinaleType({alignment}) {
   );
 }
 
-export default FinaleType;
+export default Finale;

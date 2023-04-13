@@ -8,6 +8,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { updateCatName } from "../../features/catSlice";
 import Finale from "../Finale/Finale";
 
+
 function Story() {
   const dayNum = useSelector((state) => state.day.value);
   // const checkCatName = useSelector((state) => state.cat.name);
@@ -37,7 +38,7 @@ function Story() {
           )}
           {dayNum > 5 && (
             <>
-              <p>
+              <p className="finale-container">
                 Wow what a week! Frankly, youre exhausted and have no idea what
                 to expect next. As you get out of bed and head into the kitchen
                 you see Fluffy already sitting there, waiting for you. It looks

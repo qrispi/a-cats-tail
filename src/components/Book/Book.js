@@ -1,10 +1,11 @@
 import React, { useEffect, useState } from "react";
 import "./Book.css";
 import { NavLink } from "react-router-dom";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { addFact } from "../../features/bookSlice";
 
 function Book() {
+  const dayNum = useSelector((state) => state.day.value);
   const [fact, setFact] = useState("");
   const dispatch = useDispatch()
   const getFact = async () => {
@@ -22,8 +23,8 @@ function Book() {
 
   return (
     <>
-      <h1>{fact}</h1>
-      <NavLink to="/">
+      <p>{fact}</p>
+      <NavLink to={`/story/${dayNum + 1}/choices`}>
         <button>Close Book</button>
       </NavLink>
       <button onClick={getFact}>Get a new fact!</button>

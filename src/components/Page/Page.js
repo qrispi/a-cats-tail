@@ -8,12 +8,12 @@ function Page() {
     const dispatch = useDispatch();
     return (
     <>
-      <h1>{fact}</h1>
+      <h1>Saved Facts go here</h1>
       <NavLink to="/">
         <button>Close Page</button>
       </NavLink>
       <button>Prev Page</button>
-      <button className="save-fact" onClick={() => dispatch(addFact(fact))}>Save Fact</button>
+      {/* <button className="save-fact" onClick={() => dispatch(addFact(fact))}>Save Fact</button> */}
       <button>Next Page</button>
     </>
   );

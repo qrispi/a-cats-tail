@@ -1,7 +1,23 @@
 import "./Finale.css";
 import { NavLink } from "react-router-dom";
+import { useSelector } from "react-redux";
 
 function Finale() {
+  const catMorality = useSelector((state) => state.cat.morality);
+  console.log(catMorality);
+
+  const getFinaleType = () => {
+    let finaleType;
+    if (catMorality > 3) {
+      finaleType = "good";
+    } else if (catMorality <= 3 && catMorality >= 0) {
+      finaleType = "neutral";
+    } else {
+      finaleType = "bad";
+    }
+    return finaleType;
+  };
+
   return (
     <div className="finale-container">
       <h2>All Powerful!</h2>
@@ -12,7 +28,7 @@ function Finale() {
         something important to say...
       </p>
 
-      <NavLink to={`/story/finale/good`}>
+      <NavLink to={`/story/finale/${getFinaleType()}`}>
         <button>Let's find out!</button>
       </NavLink>
     </div>

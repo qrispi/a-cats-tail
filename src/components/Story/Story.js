@@ -48,7 +48,7 @@ function Story() {
         <Route exact path="/story/finale">
           <Finale />
         </Route>
-        <Route exact path="/story/finale/good">
+        <Route exact path="/story/finale/:type">
           <FinaleType />
         </Route>
       </Switch>

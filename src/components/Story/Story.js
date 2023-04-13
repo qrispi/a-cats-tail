@@ -7,18 +7,18 @@ import { Switch, Route, NavLink } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { updateCatName } from "../../features/catSlice";
 import Finale from "../Finale/Finale";
+import FinaleType from "../Finale/FinaleType";
 
 function Story() {
   const dayNum = useSelector((state) => state.day.value);
   // const checkCatName = useSelector((state) => state.cat.name);
   const story = useSelector((state) => state.storyline);
-  const [ catName, setCatName ] = useState('');
+  const [catName, setCatName] = useState("");
   const dispatch = useDispatch();
 
   return (
-        <>
-
-    {/* <div className='intro'>
+    <>
+      {/* <div className='intro'>
         <h2>Congrats, you adopted a cat!</h2>
         <form className='name-form'>
             <label htmlFor="nameInput" className='top-margin'>What's your cat's name?</label>
@@ -41,9 +41,15 @@ function Story() {
         <Route path="/story/:dayNum/choices">
           <Choices />
         </Route>
-        <Route path="/story/:dayNum/result/:type" render={({match}) => <Result type={match.params.type}/>} />
-        <Route path="/story/finale">
+        <Route
+          path="/story/:dayNum/result/:type"
+          render={({ match }) => <Result type={match.params.type} />}
+        />
+        <Route exact path="/story/finale">
           <Finale />
+        </Route>
+        <Route exact path="/story/finale/good">
+          <FinaleType />
         </Route>
       </Switch>
     </>

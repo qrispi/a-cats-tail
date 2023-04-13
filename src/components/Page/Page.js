@@ -9,8 +9,8 @@ function Page() {
     return (
     <>
       <h1>Saved Facts go here</h1>
-      <NavLink to="/">
-        <button>Close Page</button>
+      <NavLink to="/book">
+        <button>BACK</button>
       </NavLink>
       <button>Prev Page</button>
       {/* <button className="save-fact" onClick={() => dispatch(addFact(fact))}>Save Fact</button> */}

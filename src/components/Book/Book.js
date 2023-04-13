@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import "./Book.css";
 import { NavLink } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import { addFact } from "../../features/bookSlice";
+import { addFact, removeFact } from "../../features/bookSlice";
 import { Route, Switch, Redirect } from "react-router-dom";
 import Page from "../Page/Page";
 
@@ -32,6 +32,7 @@ function Book() {
       </NavLink>
       <button onClick={getFact}>Get a new fact!</button>
       <button className="save-fact" onClick={() => dispatch(addFact(fact))}>Bookmark Fact</button>
+      <button onClick={() => dispatch(removeFact(fact))}>Remove Bookmark</button>
       <NavLink to="/book/0">
         <button>My Bookmarks</button>
       </NavLink>

@@ -6,6 +6,7 @@ import Result from "../Result/Result";
 import { Switch, Route, NavLink } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { updateCatName } from "../../features/catSlice";
+import Finale from "../Finale/Finale";
 
 function Story() {
   const dayNum = useSelector((state) => state.day.value);
@@ -42,7 +43,7 @@ function Story() {
         </Route>
         <Route path="/story/:dayNum/result/:type" render={({match}) => <Result type={match.params.type}/>} />
         <Route path="/story/finale">
-          <h2>Fin!</h2>
+          <Finale />
         </Route>
       </Switch>
     </>

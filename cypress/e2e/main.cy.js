@@ -8,7 +8,7 @@ describe('As a user, I should be able to start the game from the main page, clic
         cy.contains('h1', 'A Cat\'s Tail')
     })
 
-    // it('As a user, I should be able to name my cat', () => {
+    // it('should be able to name the cat', () => {
       
     // })
 
@@ -21,13 +21,16 @@ describe('As a user, I should be able to start the game from the main page, clic
     it('should give the user a list of choices', () => {
       cy.get('button').click()
       cy.get('button').click()
-      cy.get('button').should('have.length', 4)
+      cy.get('button')
+        .should('have.length', 4)
+        .first()
+        .should('have.text', 'Try to teach ${catName} new tricks and see how much more intelligent they can become.')
+      cy.get('button').last().should('have.text', 'Consult The Cat Fact Book')
     })
   
-
-
     // it('should ', () => {
-  
+      
     // })
+
 
 });

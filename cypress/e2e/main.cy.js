@@ -8,6 +8,10 @@ describe('As a user, I should be able to start the game from the main page, clic
         cy.contains('h1', 'A Cat\'s Tail')
     })
 
+      // it('should see the pixel cat on the main page', () => {
+      
+    // })
+
     // it('should be able to name the cat', () => {
       
     // })
@@ -16,6 +20,11 @@ describe('As a user, I should be able to start the game from the main page, clic
       cy.get('button').click()
       cy.contains('h2', 'DAY 1')
       cy.contains('p', 'You notice that your cat, ${catName}, is behaving unusually. ${catName} seems to be able to solve puzzles and is listening to you more intently than ever. You have three choices:')
+    })
+
+    it('should display what day the user is on', () => {
+      cy.get('button').click()
+      cy.contains('h2', 'DAY 1')
     })
 
     it('should give the user a list of choices', () => {
@@ -28,6 +37,8 @@ describe('As a user, I should be able to start the game from the main page, clic
       cy.get('button').last().should('have.text', 'Consult The Cat Fact Book')
     })
   
+  
+
     // it('should ', () => {
       
     // })

@@ -9,7 +9,7 @@ describe("Cat Fact Book", () => {
   });
 
 
-  it('As a user, I should be able open the book by clicking the "Get Cat Fact" button', () => {
+  it('As a user, I should be able open the book by clicking the "Consult The Cat Fact Book" button', () => {
     
   });
 

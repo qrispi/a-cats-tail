@@ -3,7 +3,7 @@ import "./Book.css";
 import { NavLink } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { addFact, removeFact } from "../../features/bookSlice";
-import { Route, Switch, Redirect } from "react-router-dom";
+import { Route } from "react-router-dom";
 import Page from "../Page/Page";
 
 function Book() {

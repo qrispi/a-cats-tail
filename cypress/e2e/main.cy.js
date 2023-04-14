@@ -37,11 +37,28 @@ describe('As a user, I should be able to start the game from the main page, clic
       cy.get('button').last().should('have.text', 'Consult The Cat Fact Book')
     })
   
+    it('should be able to make a good choice and display a positive result screen', () => {
+      cy.get('button').should('have.text', 'Continue').click()
+      cy.get('button').should('have.text', 'CONTINUE').click()
+      cy.get('button').eq(0).should('have.text', 'Try to teach ${catName} new tricks and see how much more intelligent they can become.').click()
+      cy.contains('p', '${catName} becomes even more intelligent and is able to learn new tricks quickly. The owner gains ${catName}\'s trust and friendship, which may come in handy in the future.')
+      cy.contains('p', 'Cat\'s Morality is 1')
+    })
   
-
-    // it('should ', () => {
+    it('should be able to make a neutral choice and display a neutral result screen', () => {
+      cy.get('button').should('have.text', 'Continue').click()
+      cy.get('button').should('have.text', 'CONTINUE').click()
+      cy.get('button').eq(1).should('have.text', 'Ignore ${catName}\'s behavior and continue your day as usual.').click()
+      cy.contains('p', '${catName} continues to demonstrate slightly enhanced intelligence but nothing significant happens.')
+      cy.contains('p', 'Cat\'s Morality is 0')
+    })
       
-    // })
-
+    it('should be able to make a evil choice and display a negative result screen', () => {
+      cy.get('button').should('have.text', 'Continue').click()
+      cy.get('button').should('have.text', 'CONTINUE').click()
+      cy.get('button').eq(2).should('have.text', 'Take ${catName} to the vet to see if there\'s something wrong with them.').click()
+      cy.contains('p', 'The vet finds nothing wrong with ${catName}, and you notice ${catName} is cross with you')
+      cy.contains('p', 'Cat\'s Morality is -1')
+    })
 
 });

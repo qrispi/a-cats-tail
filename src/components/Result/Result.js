@@ -11,7 +11,7 @@ function Result({type}) {
   const checkCatName = useSelector((state) => state.cat.name);
   const dispatch = useDispatch();
 
-  const getNextDay = dayNum < 5 ? `/story/${dayNum + 1}/day` : "/story/finale";
+  const getNextDay = dayNum < 5 ? `/story/${dayNum + 1}/day` : "/story/";
 
   const getResult = (type) => {
     return `${type}Reaction`;

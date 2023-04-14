@@ -7,7 +7,7 @@ import { Route, Switch, Redirect } from "react-router-dom";
 function App() {
   return (
     <div className="frame">
-      {/* <div className='play-screen'> */}
+      <div className='play-screen'>
       <Switch>
         <Route path="/story">
           <h1 className="title">A Cat's Tail</h1>
@@ -19,7 +19,7 @@ function App() {
         </Route>
         <Redirect from="/" to="/story" />
       </Switch>
-      {/* </div> */}
+      </div>
     </div>
   );
 }

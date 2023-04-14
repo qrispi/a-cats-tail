@@ -6,50 +6,45 @@ import Result from "../Result/Result";
 import { Switch, Route, NavLink } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { updateCatName } from "../../features/catSlice";
-import Finale from "../Finale/Finale";
-
-
+import { addName } from "../../features/storySlice";
 function Story() {
   const dayNum = useSelector((state) => state.day.value);
   // const checkCatName = useSelector((state) => state.cat.name);
   const story = useSelector((state) => state.storyline);
-  const [catName, setCatName] = useState("");
+  const [ catName, setCatName ] = useState('');
   const dispatch = useDispatch();
-
+  const startStory = (event) => {
+    if(catName) {
+      event.preventDefault()
+      dispatch(updateCatName(catName))
+      // GOTTA USE A COPY OR something here... maybe a reduce instead of a foreach
+      var newStory = [...story];
+      const keys = Object.keys(newStory[0]);
+      // console.log(newStory)
+      newStory.forEach(obj => {
+        keys.forEach(key => {
+        obj[key] = obj[key].replaceAll('replaceME', catName)
+        });
+      });
+      // dispatch(addName(newStory))
+    }
+  }
   return (
-    <>
-      {/* <div className='intro'>
+        <>
+    <div className='intro'>
         <h2>Congrats, you adopted a cat!</h2>
         <form className='name-form'>
             <label htmlFor="nameInput" className='top-margin'>What's your cat's name?</label>
             <input type="text" value={catName} onChange={(event) => setCatName(event.target.value)} id="nameInput" className='top-margin' required/>
-            <button className='top-margin' onClick={(event) => {
-                event.preventDefault() 
-                dispatch(updateCatName(catName))}}>Submit Name</button>
+            <button className='top-margin' onClick={(event) => startStory(event)}>Begin Journey</button>
         </form>
-    </div> */}
+    </div>
 
       <Switch>
         <Route exact path="/story">
-          {dayNum < 5 && (
-            <NavLink to={`/story/${dayNum}/day`}>
-              <button>Continue</button>
-            </NavLink>
-          )}
-          {dayNum > 5 && (
-            <>
-              <p className="finale-container">
-                Wow what a week! Frankly, youre exhausted and have no idea what
-                to expect next. As you get out of bed and head into the kitchen
-                you see Fluffy already sitting there, waiting for you. It looks
-                like they have something important to say...
-              </p>
-
-              <NavLink to={`/story/finale/`}>
-                <button>Let's find out!</button>
-              </NavLink>
-            </>
-          )}
+          <NavLink to={`/story/${dayNum}/day`}>
+            <button>Continue</button>
+          </NavLink>
         </Route>
         <Route path="/story/:dayNum/day">
           <Day />
@@ -57,13 +52,9 @@ function Story() {
         <Route path="/story/:dayNum/choices">
           <Choices />
         </Route>
-        <Route
-          path="/story/:dayNum/result/:type"
-          render={({ match }) => <Result type={match.params.type} />}
-        />
-
-        <Route exact path="/story/finale">
-          <Finale />
+        <Route path="/story/:dayNum/result/:type" render={({match}) => <Result type={match.params.type}/>} />
+        <Route path="/story/finale">
+          <h2>Fin!</h2>
         </Route>
       </Switch>
     </>

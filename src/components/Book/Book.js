@@ -37,11 +37,11 @@ function Book() {
         {savedFacts.includes(fact) && <button onClick={() => dispatch(removeFact(fact))}>Remove Bookmark</button>}
         <button onClick={() => console.log(savedFacts)}>SHOW ME THE FACTS</button>
         {savedFacts[0] && 
-          <NavLink to="/book/0">
+          <NavLink to="/book/pages">
             <button>My Bookmarks</button>
           </NavLink>}
       </Route>
-      <Route path="/book/:page">
+      <Route path="/book/pages">
           <Page />
       </Route>
     </>

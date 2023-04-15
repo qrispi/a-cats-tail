@@ -34,8 +34,6 @@ function Page() {
     }, 3000);
   };
 
-
-  console.log(savedFacts);
   return (
     <>
       <h2>Page {pageNum + 1}</h2>
@@ -72,14 +70,3 @@ function Page() {
 }
 
 export default Page;
-
-// Old code
-// <h2>Page {pageNum + 1}</h2>
-//       <p>{savedFacts[pageNum]}</p>
-//       {!savedFacts[pageNum] && <p>Oh no! You ripped out this page! Use the buttons to go to a different page.</p>}
-//       <NavLink to="/book">
-//         <button>BACK</button>
-//       </NavLink>
-//       {pageNum > 0 && <button onClick={() => turnPage(-1)}>Prev Page</button>}
-//       {savedFacts.includes(savedFacts[pageNum]) && <button onClick={() => dispatch(removeFact(savedFacts[pageNum]))}>Remove Bookmark</button>}
-//       {savedFacts.length >= (pageNum + 2) && <button onClick={() => turnPage(1)}>Next Page</button>}

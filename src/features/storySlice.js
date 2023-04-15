@@ -5,10 +5,10 @@ export const storySlice = createSlice({
   name: "storyline",
   initialState: storyData,
   reducers: {
-    addName: (state, action) => {
-      state.storyline = action.payload
-    },
+    addName: (state, action) => action.payload
   },
 });
+
+export const { addName } = storySlice.actions;
 
 export default storySlice.reducer;

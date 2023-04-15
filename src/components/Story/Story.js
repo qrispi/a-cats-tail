@@ -7,41 +7,45 @@ import { Switch, Route, NavLink } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { updateCatName } from "../../features/catSlice";
 import { addName } from "../../features/storySlice";
+
 function Story() {
   const dayNum = useSelector((state) => state.day.value);
-  // const checkCatName = useSelector((state) => state.cat.name);
   const story = useSelector((state) => state.storyline);
   const [ catName, setCatName ] = useState('');
   const dispatch = useDispatch();
+
+  const replace = (obj) => {
+    const keys = Object.keys(obj)
+    return keys.reduce((acc, cV) => {
+      acc[cV] = obj[cV].replaceAll('replaceME', catName)
+      return acc
+    }, {})
+  }
+
   const startStory = (event) => {
     if(catName) {
       event.preventDefault()
       dispatch(updateCatName(catName))
-      // GOTTA USE A COPY OR something here... maybe a reduce instead of a foreach
-      var newStory = [...story];
-      const keys = Object.keys(newStory[0]);
-      // console.log(newStory)
-      newStory.forEach(obj => {
-        keys.forEach(key => {
-        obj[key] = obj[key].replaceAll('replaceME', catName)
-        });
-      });
-      // dispatch(addName(newStory))
+      const replaceAll = story.reduce((acc, cV) => {
+        acc.push(replace(cV))
+        return acc
+      }, [])
+      dispatch(addName(replaceAll))
     }
   }
-  return (
-        <>
-    <div className='intro'>
-        <h2>Congrats, you adopted a cat!</h2>
-        <form className='name-form'>
-            <label htmlFor="nameInput" className='top-margin'>What's your cat's name?</label>
-            <input type="text" value={catName} onChange={(event) => setCatName(event.target.value)} id="nameInput" className='top-margin' required/>
-            <button className='top-margin' onClick={(event) => startStory(event)}>Begin Journey</button>
-        </form>
-    </div>
 
+  return (
+    <>
       <Switch>
         <Route exact path="/story">
+          <div className='intro'>
+              <h2>Congrats, you adopted a cat!</h2>
+              <form className='name-form'>
+                  <label htmlFor="nameInput" className='top-margin'>What's your cat's name?</label>
+                  <input type="text" value={catName} onChange={(event) => setCatName(event.target.value)} id="nameInput" className='top-margin' required/>
+                  <button className='top-margin' onClick={(event) => startStory(event)}>Begin Journey</button>
+              </form>
+          </div>
           <NavLink to={`/story/${dayNum}/day`}>
             <button>Continue</button>
           </NavLink>

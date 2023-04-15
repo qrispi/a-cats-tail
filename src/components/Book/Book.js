@@ -35,7 +35,6 @@ function Book() {
         <button onClick={getFact}>Get a new fact!</button>
         {!savedFacts.includes(fact) && <button className="save-fact" onClick={() => dispatch(addFact(fact))}>Bookmark Fact</button>}
         {savedFacts.includes(fact) && <button onClick={() => dispatch(removeFact(fact))}>Remove Bookmark</button>}
-        <button onClick={() => console.log(savedFacts)}>SHOW ME THE FACTS</button>
         {savedFacts[0] && 
           <NavLink to="/book/pages">
             <button>My Bookmarks</button>

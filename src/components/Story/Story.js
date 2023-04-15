@@ -38,6 +38,7 @@ function Story() {
     <>
       <Switch>
         <Route exact path="/story">
+        {dayNum < 5 && (
           <div className='intro'>
               <h2>Congrats, you adopted a cat!</h2>
               <form className='name-form'>
@@ -46,9 +47,24 @@ function Story() {
                   <button className='top-margin' onClick={(event) => startStory(event)}>Begin Journey</button>
               </form>
           </div>
-          <NavLink to={`/story/${dayNum}/day`}>
-            <button>Continue</button>
-          </NavLink>
+            <NavLink to={`/story/${dayNum}/day`}>
+              <button>START GAME</button>
+            </NavLink>
+          )}
+          {dayNum > 5 && (
+            <>
+              <p className="finale-container">
+                Wow what a week! Frankly, youre exhausted and have no idea what
+                to expect next. As you get out of bed and head into the kitchen
+                you see Fluffy already sitting there, waiting for you. It looks
+                like they have something important to say...
+              </p>
+
+              <NavLink to={`/story/finale/`}>
+                <button>Let's find out!</button>
+              </NavLink>
+            </>
+          )}
         </Route>
         <Route path="/story/:dayNum/day">
           <Day />

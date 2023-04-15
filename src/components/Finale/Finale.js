@@ -3,7 +3,7 @@ import "./Finale.css";
 import { NavLink } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { resetDay } from "../../features/daySlice";
-import { resetCatMorality } from "../../features/catSlice";
+import { resetCatMorality, updateCatName } from "../../features/catSlice";
 import storyData from "../../data/story-data";
 import { addName } from "../../features/storySlice";
 
@@ -43,6 +43,7 @@ function Finale() {
             dispatch(resetDay());
             dispatch(resetCatMorality());
             dispatch(addName(storyData));
+            dispatch(updateCatName(''));
           }}
         >
           Play Again

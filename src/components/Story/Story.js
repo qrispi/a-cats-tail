@@ -12,6 +12,7 @@ import Finale from "../Finale/Finale";
 function Story() {
   const dayNum = useSelector((state) => state.day.value);
   const story = useSelector((state) => state.storyline);
+  const storedName = useSelector((state) => state.cat.name);
   const [catName, setCatName] = useState("");
   const dispatch = useDispatch();
 
@@ -46,24 +47,32 @@ function Story() {
                 <label htmlFor="nameInput" className="top-margin">
                   What's your cat's name?
                 </label>
-                <input
-                  type="text"
-                  value={catName}
-                  onChange={(event) => setCatName(event.target.value)}
-                  id="nameInput"
-                  className="top-margin"
-                  required
-                />
-                <button
-                  className="top-margin"
-                  onClick={(event) => startStory(event)}
-                >
-                  Begin Journey
-                </button>
+                <div className="name-container">
+                  <input
+                    type="text"
+                    value={catName}
+                    onChange={(event) => setCatName(event.target.value)}
+                    id="nameInput"
+                    className="top-margin"
+                    required
+                  />
+                  <button
+                    className="top-margin"
+                    onClick={(event) => startStory(event)}
+                  >
+                    Submit
+                  </button>
+                </div>
               </form>
-              <NavLink to={`/story/${dayNum}/day`}>
+              {storedName &&
+              <NavLink to={`/story/${dayNum}/day`} onClick={(event) => {
+                if(!storedName) {
+                  event.preventDefault();
+                }
+                setCatName("");
+              }}>
                 <button>START GAME</button>
-              </NavLink>
+              </NavLink>}
             </div>
           )}
           {dayNum > 5 && (

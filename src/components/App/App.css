@@ -5,6 +5,8 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  border: 5px solid #323031;
+  border-radius: 30px 30px 130px 130px;
 }
 
 .play-screen {

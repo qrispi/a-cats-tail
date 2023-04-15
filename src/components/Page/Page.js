@@ -8,8 +8,6 @@ function Page() {
   const savedFacts = useSelector((state) => state.book.facts);
   const dispatch = useDispatch();
   const [pageNum, setPageNum] = useState(0);
-  // const [isFactVisible, setIsFactVisible] = useState(true);
-  // const [isMessageVisible, setIsMessageVisible] = useState(false);
 
   const [factDisplay, setFactDisplay] = useState("block");
   const [errorDisplay, setErrorDisplay] = useState("none");
@@ -18,39 +16,15 @@ function Page() {
     setPageNum(pageNum + direction);
   };
 
-  // const handleMessage = () => {
-  //   if (!isMessageVisible) {
-  //     setIsMessageVisible(true);
-  //   }
-  //   setIsMessageVisible(false);
-  // };
-
-  // const handleFact = () => {
-  //   if (isFactVisible) {
-  //     setIsFactVisible(false);
-  //   }
-  //   setIsFactVisible(true);
-  // };
-
-  // const toggleHidden = () => {
-  //   document.getElementById("fact").className.toggle("hidden");
-  //   document.getElementById("error").className.toggle("hidden");
-  // };
-
-  console.log(savedFacts);
-
   return (
     <>
       <h2>Page {pageNum + 1}</h2>
-
       <p style={{ display: factDisplay }}>{savedFacts[pageNum]}</p>
-
       <p style={{ display: errorDisplay }}>
         Oh no! You ripped out this page! Use the buttons to go to a different
         page.
       </p>
       {!savedFacts.length && <p>No more facts saved.</p>}
-
       <div className="page-btn-container">
         <NavLink to="/book">
           <button style={{ display: factDisplay }}>BACK</button>
@@ -60,15 +34,18 @@ function Page() {
             Prev Page
           </button>
         )}
-        <button
-          style={{ display: factDisplay }}
-          onClick={() => {
-            setFactDisplay("none");
-            setErrorDisplay("inline");
-          }}
-        >
-          Remove Bookmark
-        </button>
+
+        {savedFacts.includes(savedFacts[pageNum]) && (
+          <button
+            style={{ display: factDisplay }}
+            onClick={() => {
+              setFactDisplay("none");
+              setErrorDisplay("block");
+            }}
+          >
+            Remove Bookmark
+          </button>
+        )}
         {savedFacts.length >= pageNum + 2 && (
           <button style={{ display: factDisplay }} onClick={() => turnPage(1)}>
             Next Page
@@ -77,12 +54,15 @@ function Page() {
         <button
           style={{ display: errorDisplay }}
           onClick={() => {
-            setFactDisplay("inline");
+            setFactDisplay("block");
             setErrorDisplay("none");
             dispatch(removeFact(savedFacts[pageNum]));
+            if (pageNum >= 1) {
+              turnPage(-1);
+            }
           }}
         >
-          Find a new page
+          Previous page
         </button>
       </div>
     </>
@@ -90,26 +70,3 @@ function Page() {
 }
 
 export default Page;
-
-// const [isFactVisible, setIsFactVisible] = useState(true);
-// const [isMessageVisible, setIsMessageVisible] = useState(false);
-
-// const handleMessage = () => {
-//   if (!isMessageVisible) {
-//     setIsMessageVisible(true);
-//   }
-//   setTimeout(() => {
-//     setIsMessageVisible(false);
-//   }, 3000);
-// };
-
-// const handleFact = () => {
-//   if (isFactVisible) {
-//     setIsFactVisible(false);
-//   }
-//   setTimeout(() => {
-//     setIsFactVisible(true);
-//   }, 3000);
-// };
-
-// onClick={() => dispatch(removeFact(savedFacts[pageNum]))}

@@ -1,11 +1,10 @@
-describe("Cat Fact Book", () => {
+describe('Cat Fact Book', () => {
 
   beforeEach(() => {
-    cy.intercept("GET", "https://meowfacts.herokuapp.com/", {
-      statusCode: 201,
-      fixture: "cat-fact.json",
+    cy.visit('http://localhost:3000/story');
+    cy.intercept('GET', 'https://meowfacts.herokuapp.com/', {
+      fixture: 'cat-fact.json',
     });
-    cy.visit("http://localhost:3000/story");
   });
 
 
@@ -25,6 +24,13 @@ describe("Cat Fact Book", () => {
   })
 
   it('Bookmarking a fact should save it in My Bookmarks', () => {
+    cy.get('button').should('have.text', 'Continue').click()
+    .get('button').should('have.text', 'CONTINUE').click()
+    .get('button').eq(3).should('have.text', 'Consult The Cat Fact Book').click()
+    
+  })
+
+  it('Clicking the Remove Bookmark button should remove that fact from My Bookmarks', () => {
 
   })
 

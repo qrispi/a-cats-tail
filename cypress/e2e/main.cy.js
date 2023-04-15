@@ -16,6 +16,11 @@ describe('As a user, I should be able to start the game from the main page, clic
       
     // })
 
+
+    // it('should be able to see the pixel wizard once you adopt your cat', () => {
+      
+    // })
+
     it('should be able to click the continue button to initialize the game', () => {
       cy.get('button').should('have.text', 'Continue').click()
       cy.contains('h2', 'DAY 1')

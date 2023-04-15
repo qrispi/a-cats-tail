@@ -1,8 +1,16 @@
 import { useSelector } from "react-redux";
 import "./Finale.css";
+import { NavLink } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { resetDay } from "../../features/daySlice";
+import { resetCatMorality, updateCatName } from "../../features/catSlice";
+import storyData from "../../data/story-data";
+import { addName } from "../../features/storySlice";
 
 function Finale() {
   const catMorality = useSelector((state) => state.cat.morality);
+  const dispatch = useDispatch();
+  const storedName = useSelector((state) => state.cat.name);
 
   const getCatPath = () => {
     if (catMorality > 0) {
@@ -16,20 +24,35 @@ function Finale() {
 
   const getFinaleType = () => {
     if (catMorality > 0) {
-      return "Fluffy wins the nobel peace prize for solving climate change";
+      return `${storedName} wins the nobel peace prize for solving climate change`;
     } else if (catMorality === 0) {
-      return `Fluffy says "This isn't really working out anymore" and packs a bag. All you know is they "want to do something with Turquoise"`;
+      return `${storedName} says "This isn't really working out anymore" and packs a bag. All you know is they "want to do something with Turquoise"`;
     } else {
-      return "Fluffy decides humanity isn't worth it and yeets the earth into the sun";
+      return "${storedName} decides humanity isn't worth it and yeets the earth into the sun";
     }
   };
 
   return (
     <div className="finale-type-container">
-      <img src={getCatPath()} alt="Cat final form"/>
+      <img src={getCatPath()} alt="Cat final form" />
       <p>{getFinaleType()}</p>
-      <button>Play Again</button>
-      <button>Read the Book</button>
+
+      <NavLink to="/story/">
+        <button
+          onClick={() => {
+            dispatch(resetDay());
+            dispatch(resetCatMorality());
+            dispatch(addName(storyData));
+            dispatch(updateCatName(''));
+          }}
+        >
+          Play Again
+        </button>
+      </NavLink>
+
+      <NavLink to="/book">
+        <button>Read the Book</button>
+      </NavLink>
     </div>
   );
 }

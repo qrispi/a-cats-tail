@@ -12,9 +12,12 @@ export const catSlice = createSlice({
         },
         decrementCatMorality: (state) => {
             state.morality -= 1;
+        },
+        resetCatMorality: (state) => {
+            state.morality = 0
         }
     }
 });
 
-export const { updateCatName, incrementCatMorality, decrementCatMorality } = catSlice.actions;
+export const { updateCatName, incrementCatMorality, decrementCatMorality, resetCatMorality } = catSlice.actions;
 export default catSlice.reducer;

@@ -2,7 +2,18 @@ import { useSelector } from "react-redux";
 import "./Finale.css";
 
 function Finale() {
-  const catMorality = useSelector((state) => state.cat.morality);
+  const catMorality = useSelector((state) => state.cat.morality);  
+
+
+  const getCatPath = () => {
+    if (catMorality > 0) {
+      return require('../../images/good-cat-fly.gif')
+    } else if (catMorality === 0) {
+      return require('../../images/neutral-cat.gif')
+    } else {
+      return require('../../images/evil-cat.gif')
+    }
+  };
 
   const getFinaleType = () => {
     if (catMorality > 0) {
@@ -16,6 +27,7 @@ function Finale() {
 
   return (
     <div className="finale-type-container">
+      <img src={getCatPath()} />
       <p>{getFinaleType()}</p>
       <button>Play Again</button>
       <button>Read the Book</button>

@@ -33,7 +33,7 @@ function Story() {
         <Route exact path="/story">
           {dayNum < 5 && (
             <NavLink to={`/story/${dayNum}/day`}>
-              <button>Continue</button>
+              <button>START GAME</button>
             </NavLink>
           )}
           {dayNum > 5 && (

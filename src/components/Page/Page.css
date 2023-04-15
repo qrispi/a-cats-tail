@@ -1,0 +1,11 @@
+.page-btn-container {
+  display: flex;
+}
+
+.page-btn-container button {
+  margin: 0 10px;
+}
+
+p {
+  text-align: center;
+}

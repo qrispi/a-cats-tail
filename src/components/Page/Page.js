@@ -46,25 +46,27 @@ function Page() {
         </p>
       )}
       {!savedFacts.length && <p>No more facts saved.</p>}
-      <NavLink to="/book">
-        <button>BACK</button>
-      </NavLink>
-      {pageNum > 0 && <button onClick={() => turnPage(-1)}>Prev Page</button>}
 
-      {savedFacts.length >= pageNum + 2 && (
-        <button onClick={() => turnPage(1)}>Next Page</button>
-      )}
-      <button
-        onClick={() =>
-          dispatch(
-            removeFact(savedFacts[pageNum]),
-            handleFact(),
-            handleMessage()
-          )
-        }
-      >
-        Remove Bookmark
-      </button>
+      <div className="page-btn-container">
+        <NavLink to="/book">
+          <button>BACK</button>
+        </NavLink>
+        {pageNum > 0 && <button onClick={() => turnPage(-1)}>Prev Page</button>}
+        <button
+          onClick={() =>
+            dispatch(
+              removeFact(savedFacts[pageNum]),
+              handleFact(),
+              handleMessage()
+            )
+          }
+        >
+          Remove Bookmark
+        </button>
+        {savedFacts.length >= pageNum + 2 && (
+          <button onClick={() => turnPage(1)}>Next Page</button>
+        )}
+      </div>
     </>
   );
 }

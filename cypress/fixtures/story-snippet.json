@@ -1,0 +1,9 @@
+ {
+    "story": "You notice that your cat, ${catName}, is behaving unusually. ${catName} seems to be able to solve puzzles and is listening to you more intently than ever. You have three choices:",
+    "evilChoice": "Take ${catName} to the vet to see if there's something wrong with them.",
+    "neutralChoice": "Ignore ${catName}'s behavior and continue your day as usual.",
+    "goodChoice": "Try to teach ${catName} new tricks and see how much more intelligent they can become.",
+    "evilReaction": "The vet finds nothing wrong with ${catName}, and you notice ${catName} is cross with you",
+    "neutralReaction": "${catName} continues to demonstrate slightly enhanced intelligence but nothing significant happens.",
+    "goodReaction": "${catName} becomes even more intelligent and is able to learn new tricks quickly. The owner gains ${catName}'s trust and friendship, which may come in handy in the future.",
+}

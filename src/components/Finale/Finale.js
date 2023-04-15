@@ -24,11 +24,11 @@ function Finale() {
 
   const getFinaleType = () => {
     if (catMorality > 0) {
-      return `${storedName} wins the nobel peace prize for solving global warming`;
+      return `${storedName} wins the nobel peace prize for solving climate change`;
     } else if (catMorality === 0) {
       return `${storedName} says "This isn't really working out anymore" and packs a bag. All you know is they "want to do something with Turquoise"`;
     } else {
-      return `${storedName} becomes El Gato the most feared drug lord in the world`;
+      return "${storedName} decides humanity isn't worth it and yeets the earth into the sun";
     }
   };
 

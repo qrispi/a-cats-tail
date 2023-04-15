@@ -10,7 +10,7 @@ import { addName } from "../../features/storySlice";
 function Finale() {
   const catMorality = useSelector((state) => state.cat.morality);
   const dispatch = useDispatch();
-  const catName = useSelector((state) => state.cat.name);
+  const storedName = useSelector((state) => state.cat.name);
 
   const getCatPath = () => {
     if (catMorality > 0) {
@@ -24,11 +24,11 @@ function Finale() {
 
   const getFinaleType = () => {
     if (catMorality > 0) {
-      return `${catName} wins the nobel peace prize for solving global warming`;
+      return `${storedName} wins the nobel peace prize for solving global warming`;
     } else if (catMorality === 0) {
-      return `${catName} says "This isn't really working out anymore" and packs a bag. All you know is they "want to do something with Turquoise"`;
+      return `${storedName} says "This isn't really working out anymore" and packs a bag. All you know is they "want to do something with Turquoise"`;
     } else {
-      return `${catName} becomes El Gato the most feared drug lord in the world`;
+      return `${storedName} becomes El Gato the most feared drug lord in the world`;
     }
   };
 

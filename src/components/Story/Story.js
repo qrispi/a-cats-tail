@@ -24,7 +24,7 @@ function Story() {
     }, {});
   };
 
-  const startStory = (event) => {
+  const inputCatName = (event) => {
     if (catName) {
       event.preventDefault();
       dispatch(updateCatName(catName));
@@ -58,7 +58,7 @@ function Story() {
                   />
                   <button
                     className="top-margin"
-                    onClick={(event) => startStory(event)}
+                    onClick={(event) => inputCatName(event)}
                   >
                     Submit
                   </button>
@@ -78,10 +78,10 @@ function Story() {
           {dayNum > 5 && (
             <>
               <p className="finale-container">
-                Wow what a week! Frankly, youre exhausted and have no idea what
+                {`Wow what a week! Frankly, youre exhausted and have no idea what
                 to expect next. As you get out of bed and head into the kitchen
-                you see Fluffy already sitting there, waiting for you. It looks
-                like they have something important to say...
+                you see ${storedName} already sitting there, waiting for you. It looks
+                like they have something important to say...`}
               </p>
 
               <NavLink to={`/story/finale/`}>

@@ -12,6 +12,7 @@ import Finale from "../Finale/Finale";
 function Story() {
   const dayNum = useSelector((state) => state.day.value);
   const story = useSelector((state) => state.storyline);
+  const storedName = useSelector((state) => state.cat.name);
   const [catName, setCatName] = useState("");
   const dispatch = useDispatch();
 
@@ -23,7 +24,7 @@ function Story() {
     }, {});
   };
 
-  const startStory = (event) => {
+  const inputCatName = (event) => {
     if (catName) {
       event.preventDefault();
       dispatch(updateCatName(catName));
@@ -46,33 +47,41 @@ function Story() {
                 <label htmlFor="nameInput" className="top-margin">
                   What's your cat's name?
                 </label>
-                <input
-                  type="text"
-                  value={catName}
-                  onChange={(event) => setCatName(event.target.value)}
-                  id="nameInput"
-                  className="top-margin"
-                  required
-                />
-                <button
-                  className="top-margin"
-                  onClick={(event) => startStory(event)}
-                >
-                  Begin Journey
-                </button>
+                <div className="name-container">
+                  <input
+                    type="text"
+                    value={catName}
+                    onChange={(event) => setCatName(event.target.value)}
+                    id="nameInput"
+                    className="top-margin"
+                    required
+                  />
+                  <button
+                    className="top-margin"
+                    onClick={(event) => inputCatName(event)}
+                  >
+                    Submit
+                  </button>
+                </div>
               </form>
-              <NavLink to={`/story/${dayNum}/day`}>
+              {storedName &&
+              <NavLink to={`/story/${dayNum}/day`} onClick={(event) => {
+                if(!storedName) {
+                  event.preventDefault();
+                }
+                setCatName("");
+              }}>
                 <button>START GAME</button>
-              </NavLink>
+              </NavLink>}
             </div>
           )}
           {dayNum > 5 && (
             <>
               <p className="finale-container">
-                Wow what a week! Frankly, youre exhausted and have no idea what
+                {`Wow what a week! Frankly, youre exhausted and have no idea what
                 to expect next. As you get out of bed and head into the kitchen
-                you see Fluffy already sitting there, waiting for you. It looks
-                like they have something important to say...
+                you see ${storedName} already sitting there, waiting for you. It looks
+                like they have something important to say...`}
               </p>
 
               <NavLink to={`/story/finale/`}>

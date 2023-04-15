@@ -11,4 +11,5 @@ body {
 button {
   font-family: 'VT323', monospace;
   font-size: x-large;
+  cursor: pointer;
 }

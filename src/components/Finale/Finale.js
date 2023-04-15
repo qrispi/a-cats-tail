@@ -1,29 +1,34 @@
-import { useState } from "react";
 import { useSelector } from "react-redux";
 import "./Finale.css";
 
 function Finale() {
-  const catMorality = useSelector((state) => state.cat.morality);
-  const [catPath, setCatPath] = useState()
-  
+  const catMorality = useSelector((state) => state.cat.morality);  
 
   const getFinaleType = () => {
     if (catMorality > 0) {
-      setCatPath('../../images/good-cat-fly.gif');
       return "Fluffly wins the nobel peace prize for solving global warming";
     } else if (catMorality === 0) {
-      setCatPath('../../images/neutral-cat.gif')
       return `Fluffy says "This isn't really working out anymore" and packs a bag. All you know is they "want to do something with Turquoise"`;
     } else {
-      setCatPath('../../images/evil-cat.gif')
       return "Fluffy becomes El Gato the most feared drug lord in the world";
     }
   };
 
+  const getCatPath = () => {
+    if (catMorality > 0) {
+      return require('../../images/good-cat-fly.gif')
+    } else if (catMorality === 0) {
+      return require('../../images/neutral-cat.gif')
+    } else {
+      return require('../../images/evil-cat.gif')
+    }
+  };
+
+
   return (
     <div className="finale-type-container">
-      <img src={require(catPath)} />
       <p>{getFinaleType()}</p>
+      <img src={getCatPath()} />
       <button>Play Again</button>
       <button>Read the Book</button>
     </div>

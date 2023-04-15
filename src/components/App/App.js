@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 import "./App.css";
 import Story from "../Story/Story";
 import Book from "../Book/Book";

@@ -15,3 +15,15 @@
   padding: 13vh 35vw 28vh;
   height: 70vh;
 }
+
+.title {
+  font-family: 'Press Start 2P', cursive;
+  font-size: x-large;
+  text-align: center;
+}
+
+h1 {
+  font-family: 'Press Start 2P', cursive;
+  font-size: large;
+  text-align: center;
+}

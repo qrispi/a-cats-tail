@@ -4,6 +4,16 @@ import "./Finale.css";
 function Finale() {
   const catMorality = useSelector((state) => state.cat.morality);
 
+  const getCatType = () => {
+    if (catMorality > 0) {
+      return '../../images/good-cat-fly.gif';
+    } else if (catMorality === 0) {
+      return '../../images/neutral-cat.gif';
+    } else {
+      return '../../images/evil-cat.gif';
+    }
+  }
+
   const getFinaleType = () => {
     if (catMorality > 0) {
       return "Fluffly wins the nobel peace prize for solving global warming";
@@ -16,6 +26,7 @@ function Finale() {
 
   return (
     <div className="finale-type-container">
+      <img src={require(getCatType())} />
       <p>{getFinaleType()}</p>
       <button>Play Again</button>
       <button>Read the Book</button>

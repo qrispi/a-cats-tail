@@ -1,12 +1,19 @@
-import React from "react";
+import React, { useEffect } from "react";
 import "./App.css";
 import Story from "../Story/Story";
 import Book from "../Book/Book";
 import { Route, Switch, Redirect } from "react-router-dom";
 
+
 function App() {
+
+  const getRandomColor = () => {
+    const colors = ["#d71377", "#0b97a8", "#522d94", "#90c62a", "#fcd00b"]
+    return colors[Math.floor((Math.random() * 5))]
+  }
+
   return (
-    <div className="frame">
+    <div className="frame" style={{backgroundColor: getRandomColor() }}>
       <div className='play-screen'>
       <Switch>
         <Route path="/story">

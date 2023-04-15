@@ -48,7 +48,10 @@ function Finale() {
           Play Again
         </button>
       </NavLink>
-      <button>Read the Book</button>
+
+      <NavLink to="/book">
+        <button>Read the Book</button>
+      </NavLink>
     </div>
   );
 }

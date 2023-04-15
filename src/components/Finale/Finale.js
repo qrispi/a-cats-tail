@@ -1,8 +1,16 @@
 import { useSelector } from "react-redux";
 import "./Finale.css";
+import { NavLink } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { resetDay } from "../../features/daySlice";
+import { resetCatMorality } from "../../features/catSlice";
+import storyData from "../../data/story-data";
+import { addName } from "../../features/storySlice";
 
 function Finale() {
   const catMorality = useSelector((state) => state.cat.morality);
+  const dispatch = useDispatch();
+  const catName = useSelector((state) => state.cat.name);
 
   const getCatPath = () => {
     if (catMorality > 0) {
@@ -16,19 +24,30 @@ function Finale() {
 
   const getFinaleType = () => {
     if (catMorality > 0) {
-      return "Fluffly wins the nobel peace prize for solving global warming";
+      return `${catName} wins the nobel peace prize for solving global warming`;
     } else if (catMorality === 0) {
-      return `Fluffy says "This isn't really working out anymore" and packs a bag. All you know is they "want to do something with Turquoise"`;
+      return `${catName} says "This isn't really working out anymore" and packs a bag. All you know is they "want to do something with Turquoise"`;
     } else {
-      return "Fluffy becomes El Gato the most feared drug lord in the world";
+      return `${catName} becomes El Gato the most feared drug lord in the world`;
     }
   };
 
   return (
     <div className="finale-type-container">
-      <img src={getCatPath()} alt="Cat final form"/>
+      <img src={getCatPath()} alt="Cat final form" />
       <p>{getFinaleType()}</p>
-      <button>Play Again</button>
+
+      <NavLink to="/story/">
+        <button
+          onClick={() => {
+            dispatch(resetDay());
+            dispatch(resetCatMorality());
+            dispatch(addName(storyData));
+          }}
+        >
+          Play Again
+        </button>
+      </NavLink>
       <button>Read the Book</button>
     </div>
   );

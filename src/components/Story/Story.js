@@ -7,49 +7,64 @@ import { Switch, Route, NavLink } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { updateCatName } from "../../features/catSlice";
 import { addName } from "../../features/storySlice";
+import Finale from "../Finale/Finale";
 
 function Story() {
   const dayNum = useSelector((state) => state.day.value);
   const story = useSelector((state) => state.storyline);
-  const [ catName, setCatName ] = useState('');
+  const [catName, setCatName] = useState("");
   const dispatch = useDispatch();
 
   const replace = (obj) => {
-    const keys = Object.keys(obj)
+    const keys = Object.keys(obj);
     return keys.reduce((acc, cV) => {
-      acc[cV] = obj[cV].replaceAll('replaceME', catName)
-      return acc
-    }, {})
-  }
+      acc[cV] = obj[cV].replaceAll("replaceME", catName);
+      return acc;
+    }, {});
+  };
 
   const startStory = (event) => {
-    if(catName) {
-      event.preventDefault()
-      dispatch(updateCatName(catName))
+    if (catName) {
+      event.preventDefault();
+      dispatch(updateCatName(catName));
       const replaceAll = story.reduce((acc, cV) => {
-        acc.push(replace(cV))
-        return acc
-      }, [])
-      dispatch(addName(replaceAll))
+        acc.push(replace(cV));
+        return acc;
+      }, []);
+      dispatch(addName(replaceAll));
     }
-  }
+  };
 
   return (
     <>
       <Switch>
         <Route exact path="/story">
-        {dayNum < 5 && (
-          <div className='intro'>
+          {dayNum < 5 && (
+            <div className="intro">
               <h2>Congrats, you adopted a cat!</h2>
-              <form className='name-form'>
-                  <label htmlFor="nameInput" className='top-margin'>What's your cat's name?</label>
-                  <input type="text" value={catName} onChange={(event) => setCatName(event.target.value)} id="nameInput" className='top-margin' required/>
-                  <button className='top-margin' onClick={(event) => startStory(event)}>Begin Journey</button>
+              <form className="name-form">
+                <label htmlFor="nameInput" className="top-margin">
+                  What's your cat's name?
+                </label>
+                <input
+                  type="text"
+                  value={catName}
+                  onChange={(event) => setCatName(event.target.value)}
+                  id="nameInput"
+                  className="top-margin"
+                  required
+                />
+                <button
+                  className="top-margin"
+                  onClick={(event) => startStory(event)}
+                >
+                  Begin Journey
+                </button>
               </form>
-          </div>
-            <NavLink to={`/story/${dayNum}/day`}>
-              <button>START GAME</button>
-            </NavLink>
+              <NavLink to={`/story/${dayNum}/day`}>
+                <button>START GAME</button>
+              </NavLink>
+            </div>
           )}
           {dayNum > 5 && (
             <>
@@ -72,9 +87,12 @@ function Story() {
         <Route path="/story/:dayNum/choices">
           <Choices />
         </Route>
-        <Route path="/story/:dayNum/result/:type" render={({match}) => <Result type={match.params.type}/>} />
+        <Route
+          path="/story/:dayNum/result/:type"
+          render={({ match }) => <Result type={match.params.type} />}
+        />
         <Route path="/story/finale">
-          <h2>Fin!</h2>
+          <Finale />
         </Route>
       </Switch>
     </>

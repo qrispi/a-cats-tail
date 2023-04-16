@@ -1,0 +1,10 @@
+/* iPads, Tablets */
+@media (min-width: 651px) and (max-width: 800px) {
+  * {
+    background-color: blue;
+  }
+
+  .play-screen {
+    width: 64%;
+  }
+}

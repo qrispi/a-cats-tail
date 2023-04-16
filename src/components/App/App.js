@@ -21,7 +21,7 @@ function App() {
           <Story />
         </Route>
         <Route path="/book">
-          <h1>The Book of Cat</h1>
+          <h1 className="book-title">The Book of Cat</h1>
           <Book />
         </Route>
         <Redirect from="/" to="/story" />

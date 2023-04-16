@@ -77,7 +77,7 @@ function Story() {
           )}
           {dayNum > 5 && (
             <>
-              <p className="finale-container">
+              <p className="finale-text">
                 {`Wow what a week! Frankly, youre exhausted and have no idea what
                 to expect next. As you get out of bed and head into the kitchen
                 you see ${storedName} already sitting there, waiting for you. It looks

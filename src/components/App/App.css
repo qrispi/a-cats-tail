@@ -1,6 +1,7 @@
 .frame {
   height: 100vh;
-  background: url('../../images/frame-backdrop.png') no-repeat center center/contain;
+  background: url("../../images/frame-backdrop.png") no-repeat center
+    center/contain;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -10,22 +11,29 @@
 }
 
 .play-screen {
-  display: flex;
+  /* display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: space-between;
-  padding: 13vh 35vw 28vh;
-  height: 70vh;
+  justify-content: space-between; */
+  text-align: center;
+  position: relative;
+  bottom: 30px;
+  height: 64vh;
+  width: 42%;
+  border: 2px solid red;
+  padding: 0 20px;
 }
 
 .title {
-  font-family: 'Press Start 2P', cursive;
-  font-size: xx-large;
-  text-align: center;
-}
-
-h1 {
-  font-family: 'Press Start 2P', cursive;
+  font-family: "Press Start 2P", cursive;
   font-size: x-large;
   text-align: center;
+  position: relative;
+  z-index: 2;
+}
+
+.book-title {
+  font-family: "Press Start 2P", cursive;
+  text-align: center;
+  font-size: 24px;
 }

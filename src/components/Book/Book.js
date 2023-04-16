@@ -27,7 +27,7 @@ function Book() {
   return (
     <>
       <Route exact path="/book">
-        <p>{fact}</p>
+        <p className="fact-text">{fact}</p>
         <NavLink to={`/story/${dayNum + 1}/choices`}>
           <button>Close Book</button>
         </NavLink>

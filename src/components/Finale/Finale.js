@@ -28,7 +28,7 @@ function Finale() {
     } else if (catMorality === 0) {
       return `${storedName} says "This isn't really working out anymore" and packs a bag. All you know is they "want to do something with Turquoise"`;
     } else {
-      return "${storedName} decides humanity isn't worth it and yeets the earth into the sun";
+      return `${storedName} decides humanity isn't worth it and yeets the earth into the sun`;
     }
   };
 

@@ -28,7 +28,7 @@ const storyline = [
   },
   {
     story: "replaceME's physical abilities have become even more enhanced, allowing them to run insanely fast and jump to the top of buildings.",
-    goodChoice: "You take replaceMe on a fun adventure, going hiking and then bungee jumping.",
+    goodChoice: "You take replaceME on a fun adventure, going hiking and then bungee jumping.",
     neutralChoice: "Use replaceME's abilities to compete in a cat show agility event.",
     evilChoice: "Ask replaceME to go on a bank heist for you.",
     goodReaction: "replaceME has a great time and your bond strengthens.",

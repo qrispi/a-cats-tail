@@ -28,14 +28,14 @@ function Finale() {
     } else if (catMorality === 0) {
       return `${storedName} says "This isn't really working out anymore" and packs a bag. All you know is they "want to do something with Turquoise"`;
     } else {
-      return "${storedName} decides humanity isn't worth it and yeets the earth into the sun";
+      return `${storedName} decides humanity isn't worth it and yeets the earth into the sun`;
     }
   };
 
   return (
     <div className="finale-type-container">
       <img src={getCatPath()} alt="Cat final form" />
-      <p>{getFinaleType()}</p>
+      <p className="finale-text">{getFinaleType()}</p>
 
       <NavLink to="/story/">
         <button
@@ -43,7 +43,7 @@ function Finale() {
             dispatch(resetDay());
             dispatch(resetCatMorality());
             dispatch(addName(storyData));
-            dispatch(updateCatName(''));
+            dispatch(updateCatName(""));
           }}
         >
           Play Again

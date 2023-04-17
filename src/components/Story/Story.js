@@ -60,7 +60,7 @@ function Story() {
             <div className="intro">
               {introAnimations}
               {introComplete && <>
-              <h2>Congrats, you adopted a cat!</h2>
+              <h2 className="adopt-text">Congrats, you adopted a cat!</h2>
               <form className="name-form">
                 <label htmlFor="nameInput" className="top-margin">
                   What's your cat's name?
@@ -96,7 +96,7 @@ function Story() {
           )}
           {dayNum > 5 && (
             <>
-              <p className="finale-container">
+              <p className="finale-text">
                 {`Wow what a week! Frankly, youre exhausted and have no idea what
                 to expect next. As you get out of bed and head into the kitchen
                 you see ${storedName} already sitting there, waiting for you. It looks

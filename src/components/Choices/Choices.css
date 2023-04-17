@@ -1,0 +1,11 @@
+.choice-btns-container {
+  margin-top: -40px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  height: 250px;
+}
+
+.choice-btns-container button {
+  font-size: 18px;
+}

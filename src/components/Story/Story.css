@@ -13,9 +13,10 @@
   margin-top: 2vh;
 }
 
-.finale-container {
+.finale-text {
   text-align: center;
-  border: 2px solid white;
+  font-size: 26px;
+  margin-top: 10vh;
 }
 
 .name-container {

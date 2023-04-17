@@ -2,7 +2,7 @@ describe('As a user, I should be able to start the game from the main page, clic
 
   beforeEach(() => {
       cy.visit('http://localhost:3000/story')
-      cy.wait(10000)
+      cy.wait(3000)
   })
 
     it('should see the title of the app', () => {
@@ -50,7 +50,7 @@ describe('As a user, I should be able to start the game from the main page, clic
         .should('have.text', 'Ignore Fluffy\'s behavior and continue your day as usual.')
       cy.get('button').eq(2)
         .should('have.text', 'Take Fluffy to the vet to see if there\'s something wrong with them.')
-      cy.get('button').last().should('have.text', 'Consult The Cat Fact Book')
+      cy.get('button').last().should('have.text', 'CONSULT THE BOOK OF CAT')
     })
 
     it('should be able to make a good choice and display a positive result screen', () => {
@@ -141,8 +141,8 @@ describe('As a user, I should be able to start the game from the main page, clic
       cy.get('button').eq(0).should('have.text', 'CONTINUE').click()
 
       cy.contains('p', 'Wow what a week! Frankly, youre exhausted and have no idea what to expect next. As you get out of bed and head into the kitchen you see Fluffy already sitting there, waiting for you. It looks like they have something important to say...')
-      cy.get('button').should('have.text', 'Let\'s find out!').click()
+      cy.get('button').should('have.text', 'CONTINUE').click()
       cy.contains('p', 'Fluffy wins the nobel peace prize for solving climate change')
-      cy.get('button').eq(0).should('have.text', 'Play Again')
+      cy.get('button').eq(0).should('have.text', 'PLAY AGAIN')
     })
 });

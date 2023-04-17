@@ -2,30 +2,23 @@ describe('As a user, I should be able to start the game from the main page, clic
 
   beforeEach(() => {
       cy.visit('http://localhost:3000/story')
+      cy.wait(15000)
   })
 
     it('should see the title of the app', () => {
         cy.contains('h1', 'A Cat\'s Tail')
     })
 
-      // it('should see the pixel cat on the main page', () => {
-      
-    // })
-
     it('should be able to name the cat with the form', () => {
-      cy.get("form").within(() => {
-      cy.get('input[type="text"]').type("Fluffy")
+      cy.get('form').within(() => {
+      cy.get('input[type="text"]').type('Fluffy')
       cy.get('button').click()
     })
   })
 
-    // it('should be able to see the pixel wizard once you adopt your cat', () => {
-      
-    // })
-
     it('should be able to click the "start game" button to initialize the game', () => {
-      cy.get("form").within(() => {
-        cy.get('input[type="text"]').type("Fluffy")
+      cy.get('form').within(() => {
+        cy.get('input[type="text"]').type('Fluffy')
         cy.get('button').click()
       })
         .get('button').eq(1).should('have.text', 'START GAME').click()

@@ -5,6 +5,7 @@ describe('Cat Fact Book', () => {
     cy.intercept('GET', 'https://meowfacts.herokuapp.com/', {
       fixture: 'cat-fact.json',
     });
+    cy.wait(15000)
   });
 
   it('should be able open the book by clicking the "Consult The Cat Fact Book" button', () => {

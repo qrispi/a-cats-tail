@@ -15,8 +15,8 @@ function Story() {
   const storedName = useSelector((state) => state.cat.name);
   const [catName, setCatName] = useState("");
   const [introAnimations, setIntroAnimations] = useState(<>
-  <img src={require("../../images/wizard.gif")} alt="Wizard" /> 
-  <p>A strange man in a pointy hat appears and with a twinkle in his eye hands you a cat and a book called "The Book of Cat"</p>
+  <img className="wizard-gif" src={require("../../images/wizard.gif")} alt="Wizard" /> 
+  <p className="wizard-text">A strange man in a pointy hat appears and with a twinkle in his eye hands you a cat and a book called "The Book of Cat"</p>
   </>);
   const [introComplete, setIntroComplete] = useState(false);
   const dispatch = useDispatch();
@@ -91,28 +91,24 @@ function Story() {
                 setCatName("");
               }}>
                 <button
-                  className="blue-button">
+                  className="blue-button start-button">
                   START GAME
                 </button>
               </NavLink>}
             </div>
           )}
           {dayNum > 5 && (
-            <>
-              <p className="finale-text">
-                {`Wow what a week! Frankly, youre exhausted and have no idea what
-                to expect next. As you get out of bed and head into the kitchen
-                you see ${storedName} already sitting there, waiting for you. It looks
-                like they have something important to say...`}
+            <div className="finale-container">
+              <p className="finale-text" style={{fontSize: "30px"}}>
+                {`Wow what a week! Frankly, you're exhausted and have no idea what to expect next. As you get out of bed and head into the kitchen, you see ${storedName} already sitting there, waiting for you. It looks like they have something important to say...`}
               </p>
-
               <NavLink to={`/story/finale/`}>
                 <button
                   className="blue-button">
                   CONTINUE
                 </button>
               </NavLink>
-            </>
+            </div>
           )}
         </Route>
         <Route path="/story/:dayNum/day">

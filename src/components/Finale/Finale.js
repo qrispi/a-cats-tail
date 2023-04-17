@@ -36,7 +36,6 @@ function Finale() {
     <div className="finale-type-container">
       <img src={getCatPath()} alt="Cat final form" />
       <p className="finale-text">{getFinaleType()}</p>
-
       <NavLink to="/story/">
         <button
           className="blue-button"

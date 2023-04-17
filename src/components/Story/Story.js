@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "./Story.css";
 import Day from "../Day/Day";
 import Choices from "../Choices/Choices";
@@ -14,6 +14,8 @@ function Story() {
   const story = useSelector((state) => state.storyline);
   const storedName = useSelector((state) => state.cat.name);
   const [catName, setCatName] = useState("");
+  const [introAnimations, setIntroAnimations] = useState(<img src={require("../../images/wizard.gif")} alt="Wizard" />);
+  const [introComplete, setIntroComplete] = useState(false);
   const dispatch = useDispatch();
 
   const replace = (obj) => {
@@ -23,6 +25,20 @@ function Story() {
       return acc;
     }, {});
   };
+
+  useEffect(() => {
+    getIntroAnimations()
+  }, [])
+
+  const getIntroAnimations = () => {
+      setTimeout(() => {
+        setIntroAnimations(<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>)
+      }, 3000);
+      setTimeout(() => {
+        setIntroAnimations(<img src={require("../../images/neutral-cat.gif")} alt="Cat" />)
+        setIntroComplete(true)
+      }, 10000);
+  }
 
   const inputCatName = (event) => {
     if (catName) {
@@ -42,7 +58,9 @@ function Story() {
         <Route exact path="/story">
           {dayNum < 5 && (
             <div className="intro">
-              <h2>Congrats, you adopted a cat!</h2>
+              {introAnimations}
+              {introComplete && <>
+              <h2 className="adopt-text">Congrats, you adopted a cat!</h2>
               <form className="name-form">
                 <label htmlFor="nameInput" className="top-margin">
                   What's your cat's name?
@@ -64,6 +82,7 @@ function Story() {
                   </button>
                 </div>
               </form>
+              </>}
               {storedName &&
               <NavLink to={`/story/${dayNum}/day`} onClick={(event) => {
                 if(!storedName) {
@@ -77,7 +96,7 @@ function Story() {
           )}
           {dayNum > 5 && (
             <>
-              <p className="finale-container">
+              <p className="finale-text">
                 {`Wow what a week! Frankly, youre exhausted and have no idea what
                 to expect next. As you get out of bed and head into the kitchen
                 you see ${storedName} already sitting there, waiting for you. It looks

@@ -1,0 +1,84 @@
+@media (min-width: 501px) and (max-width: 650px) {
+  .title {
+    font-size: large;
+  }
+
+  .adopt-text {
+    font-size: 26px;
+  }
+
+  .play-screen {
+    width: 64%;
+    height: 50vh;
+  }
+
+  .day-text {
+    font-size: 36px;
+  }
+
+  .story-text {
+    font-size: 18px;
+  }
+
+  .choice-title {
+    font-size: 27px;
+  }
+
+  .choice-btns-container {
+    margin-top: -20px;
+    height: 200px;
+  }
+
+  .choice-btns-container button {
+    font-size: 14px;
+  }
+
+  img {
+    width: 100px;
+    margin-top: 10px;
+  }
+
+  .result-text {
+    font-size: 20px;
+  }
+
+  .finale-text {
+    font-size: 18px;
+  }
+
+  .finale-type-container button {
+    font-size: 18px;
+  }
+}
+
+@media (min-width: 651px) and (max-width: 700px) {
+  .play-screen {
+    width: 64%;
+  }
+}
+
+@media (min-width: 701px) and (max-width: 800px) {
+  .play-screen {
+    width: 55%;
+  }
+}
+
+/* Mobile */
+@media only screen and (max-width: 500px) {
+  .frame {
+    background: none;
+  }
+
+  .play-screen {
+    width: 100%;
+    border: none;
+  }
+
+  .choice-btns-container {
+    margin-top: 0;
+  }
+
+  img {
+    margin-top: 20px;
+  }
+}

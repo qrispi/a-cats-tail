@@ -137,10 +137,10 @@ describe('As a user, I should be able to start the game from the main page, clic
       cy.contains('p', 'Fluffy gains the ability to teleport, allowing them to instantly transport themselves and others to different locations.')
       cy.get('button').eq(0).should('have.text', 'CONTINUE').click()
       cy.get('button').eq(0).should('have.text', 'Train Fluffy to control their powers and use them to help people around the country by teleporting them away from danger and stopping disasters.').click()
-      cy.contains('p', 'Fluffy becomes a powerful force for good and nationally acclaimed superhero.')
+      cy.contains('p', 'Fluffy becomes a powerful force for good and a nationally acclaimed superhero.')
       cy.get('button').eq(0).should('have.text', 'CONTINUE').click()
 
-      cy.contains('p', 'Wow what a week! Frankly, youre exhausted and have no idea what to expect next. As you get out of bed and head into the kitchen you see Fluffy already sitting there, waiting for you. It looks like they have something important to say...')
+      cy.contains('p', 'Wow what a week! Frankly, you\'re exhausted and have no idea what to expect next. As you get out of bed and head into the kitchen, you see Fluffy already sitting there, waiting for you. It looks like they have something important to say...')
       cy.get('button').should('have.text', 'CONTINUE').click()
       cy.contains('p', 'Fluffy wins the nobel peace prize for solving climate change')
       cy.get('button').eq(0).should('have.text', 'PLAY AGAIN')

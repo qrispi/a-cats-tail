@@ -2,7 +2,7 @@ describe('As a user, I should be able to start the game from the main page, clic
 
   beforeEach(() => {
       cy.visit('http://localhost:3000/story')
-      cy.wait(15000)
+      cy.wait(10000)
   })
 
     it('should see the title of the app', () => {

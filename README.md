@@ -6,6 +6,17 @@ Have you ever thought to yourself, is my cat evil? Do you yearn for the nostalgi
 
 ## Preview of App:
 
+### Game Start Demo:
+
+![start-demo](https://user-images.githubusercontent.com/24902544/232613001-c3574766-8fde-4d92-9f0e-90808e917086.gif)
+
+### Book of Cat API Demo:
+
+![book-demo](https://user-images.githubusercontent.com/24902544/232613027-7cf0f057-23da-4ea7-9091-77343a5ad67d.gif)
+
+### Game Finish Demo:
+
+![end-demo](https://user-images.githubusercontent.com/24902544/232613044-d679c9e2-ebd0-46e5-8b49-66231bb0bcd6.gif)
 
 ## Learning Goals:
 

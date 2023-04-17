@@ -14,7 +14,7 @@ function Choices() {
   const dispatch = useDispatch();
   return (
     <>
-      <h3>What do you do?</h3>
+      <h3 className="choice-title">What do you do?</h3>
       <div className="choice-btns-container">
         <NavLink to={`/story/${dayNum + 1}/result/good`}>
           <button

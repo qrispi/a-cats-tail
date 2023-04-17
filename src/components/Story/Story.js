@@ -42,7 +42,7 @@ function Story() {
         <Route exact path="/story">
           {dayNum < 5 && (
             <div className="intro">
-              <h2>Congrats, you adopted a cat!</h2>
+              <h2 className="adopt-text">Congrats, you adopted a cat!</h2>
               <form className="name-form">
                 <label htmlFor="nameInput" className="top-margin">
                   What's your cat's name?

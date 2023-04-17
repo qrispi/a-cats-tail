@@ -27,9 +27,8 @@
   }
 }
 
-@media (min-width: 1101px) and (max-width: 1400px) {
+@media (min-width: 1101px) {
   .play-screen {
-    width: 53%;
     height: 58vh;
   }
 
@@ -58,6 +57,16 @@
   .finale-type-container img {
     width: 300px;
     margin-top: -10vh;
+  }
+
+  .wizard-gif {
+    margin: -3vh 0 0;
+  }
+}
+
+@media (min-width: 1101px) and (max-width: 1350px) {
+  .play-screen {
+    width: 53%;
   }
 }
 

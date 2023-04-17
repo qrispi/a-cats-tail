@@ -13,7 +13,12 @@ Our main goal was to better understand global state management though learning a
 
 ## Wins and Challenges:
 
-## Future Iterations:
+- There was a bit of a learning curve with Redux, since it was our first time seeing and using this library. 
+
+- Considering the size of our app, we constructed very thorough E2E testing using Cypress. 
+
+- It was a challenge connecting all of the many components and deviating from the expected structure to accommodate the scope of the project
+
 
 ## Developers:
 

@@ -11,6 +11,14 @@ function Book() {
   const savedFacts = useSelector((state) => state.book.facts);
   const [fact, setFact] = useState("");
   const dispatch = useDispatch();
+
+  const checkPath = () => {
+    return (dayNum === 6) ?
+      "/story/finale"
+    :
+    `/story/${dayNum + 1}/choices`
+  }
+
   const getFact = async () => {
     try {
       const response = await fetch("https://meowfacts.herokuapp.com/");
@@ -20,6 +28,7 @@ function Book() {
       console.log(error);
     }
   };
+
   useEffect(() => {
     getFact();
   }, []);
@@ -28,7 +37,7 @@ function Book() {
     <>
       <Route exact path="/book">
         <p className="fact-text">{fact}</p>
-        <NavLink to={`/story/${dayNum + 1}/choices`}>
+        <NavLink to={checkPath}>
           <button 
             className="blue-button">
             BACK

@@ -6,7 +6,10 @@ Have you ever thought to yourself, is my cat evil? Do you yearn for the nostalgi
 
 ## Preview of App:
 
+
 ## Learning Goals:
+
+Our main goal was to better understand global state management though learning and implementing Redux Toolkit. We practiced E2E testing with Cypress, used React hooks, Router, fetch calls, and exercised teamwork with the Git workflow.
 
 ## Wins and Challenges:
 
@@ -14,4 +17,7 @@ Have you ever thought to yourself, is my cat evil? Do you yearn for the nostalgi
 
 ## Developers:
 
+- [Christopher A Baum](https://github.com/qrispi)
+- [Jeff Sahim](https://github.com/jsahim)
+- [Jesus Borjas](https://github.com/Jesusborjas006)
 - [Bri Bourassa](https://github.com/BriBourassa)

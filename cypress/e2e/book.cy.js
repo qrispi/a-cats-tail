@@ -5,49 +5,58 @@ describe('Cat Fact Book', () => {
     cy.intercept('GET', 'https://meowfacts.herokuapp.com/', {
       fixture: 'cat-fact.json',
     });
+    cy.wait(3000)
   });
 
-  it('should be able open the book by clicking the "Consult The Cat Fact Book" button', () => {
-    cy.get('button').should('have.text', 'Continue').click()
+  it('should be able open the book by clicking the "Consult The Book of Cat" button', () => {
+    cy.get('button').type('Fluffy')
+      .should('have.text', '⤏').click()
+    cy.get('button').eq(1).should('have.text', "START GAME").click()
       .get('button').should('have.text', 'CONTINUE').click()
-      .get('button').eq(3).should('have.text', 'Consult The Cat Fact Book').click()
-    cy.contains('h1', 'The Book of Cat')
+    cy.get('button').eq(3).should('have.text', 'CONSULT THE BOOK OF CAT')
   });
 
-  it('when the Cat Fact Book is clicked, user should be taken to a new page that shows me a random Cat Fact', () => {
-    cy.get('button').should('have.text', 'Continue').click()
+  it('should go to a new page when user clicks THE BOOK OF CAT and show a random Cat Fact', () => {
+    cy.get('button').type('Fluffy')
+      .should('have.text', '⤏').click()
+    cy.get('button').eq(1).should('have.text', "START GAME").click()
       .get('button').should('have.text', 'CONTINUE').click()
-      .get('button').eq(3).should('have.text', 'Consult The Cat Fact Book').click()
-    cy.contains('h1', 'The Book of Cat')
+    cy.get('button').eq(3).should('have.text', 'CONSULT THE BOOK OF CAT').click()
     cy.contains('People who are allergic to cats are actually allergic to cat saliva or to cat dander. If the resident cat is bathed regularly the allergic people tolerate it better.')
   })
 
-  it('Bookmarking a fact should save it in My Bookmarks', () => {
-    cy.get('button').should('have.text', 'Continue').click()
-    .get('button').should('have.text', 'CONTINUE').click()
-    .get('button').eq(3).should('have.text', 'Consult The Cat Fact Book').click()
-    .get('button').eq(2).should('have.text', 'Bookmark Fact').click()
-    .get('button').eq(2).should('have.text', 'Remove Bookmark')
-  })
-
-  it('Clicking the Remove Bookmark button should remove that fact from My Bookmarks', () => {
-    cy.get('button').should('have.text', 'Continue').click()
-    .get('button').should('have.text', 'CONTINUE').click()
-    .get('button').eq(3).should('have.text', 'Consult The Cat Fact Book').click()
-    .get('button').eq(2).should('have.text', 'Bookmark Fact').click()
-    .get('button').eq(2).should('have.text', 'Remove Bookmark').click()
-    .get('button').eq(2).should('have.text', 'Bookmark Fact')
-  })
-
-  it('when "Get a new fact" button is clicked, should display another random fact', () => {
-    cy.get('button').should('have.text', 'Continue').click()
+  it('should save the fact in MY BOOKMARKS when the user clicks BOOKMARK', () => {
+    cy.get('button').type('Fluffy')
+      .should('have.text', '⤏').click()
+    cy.get('button').eq(1).should('have.text', "START GAME").click()
       .get('button').should('have.text', 'CONTINUE').click()
-      .get('button').eq(3).should('have.text', 'Consult The Cat Fact Book').click()
+    cy.get('button').eq(3).should('have.text', 'CONSULT THE BOOK OF CAT').click()
     cy.contains('People who are allergic to cats are actually allergic to cat saliva or to cat dander. If the resident cat is bathed regularly the allergic people tolerate it better.')
-      .get('button').eq(1).should('have.text', 'Get a new fact!').click()
- 
-
+      .get('button').eq(2).should('have.text', 'BOOKMARK').click()
+      .get('button').eq(3).should('have.text', 'REMOVE').click()
+    cy.contains('p', 'People who are allergic to cats are actually allergic to cat saliva or to cat dander. If the resident cat is bathed regularly the allergic people tolerate it better.')
   })
 
+  it('should remove a fact from MY BOOKMARKS when the user clicks REMOVE and inform user the page has been ripped out of the book', () => {
+    cy.get('button').type('Fluffy')
+      .should('have.text', '⤏').click()
+    cy.get('button').eq(1).should('have.text', "START GAME").click()
+      .get('button').should('have.text', 'CONTINUE').click()
+    cy.get('button').eq(3).should('have.text', 'CONSULT THE BOOK OF CAT').click()
+    cy.contains('People who are allergic to cats are actually allergic to cat saliva or to cat dander. If the resident cat is bathed regularly the allergic people tolerate it better.')
+      .get('button').eq(2).should('have.text', 'BOOKMARK').click()
+      .get('button').eq(2).should('have.text', 'MY BOOKMARKS').click()
+      .get('button').eq(1).should('have.text', 'REMOVE').click()
+    cy.contains('p', 'You ripped out this page!')
+  })
 
+  it('should display another random fact when NEW FACT button is clicked', () => {
+    cy.get('button').type('Fluffy')
+      .should('have.text', '⤏').click()
+    cy.get('button').eq(1).should('have.text', "START GAME").click()
+      .get('button').should('have.text', 'CONTINUE').click()
+    cy.get('button').eq(3).should('have.text', 'CONSULT THE BOOK OF CAT').click()
+    cy.contains('p', 'People who are allergic to cats are actually allergic to cat saliva or to cat dander. If the resident cat is bathed regularly the allergic people tolerate it better.')
+        .get('button').eq(1).should('have.text', 'NEW FACT').click()
+  })
 });

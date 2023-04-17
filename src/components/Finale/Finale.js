@@ -36,9 +36,9 @@ function Finale() {
     <div className="finale-type-container">
       <img src={getCatPath()} alt="Cat final form" />
       <p className="finale-text">{getFinaleType()}</p>
-
       <NavLink to="/story/">
         <button
+          className="blue-button"
           onClick={() => {
             dispatch(resetDay());
             dispatch(resetCatMorality());
@@ -46,12 +46,15 @@ function Finale() {
             dispatch(updateCatName(""));
           }}
         >
-          Play Again
+          PLAY AGAIN
         </button>
       </NavLink>
 
       <NavLink to="/book">
-        <button>Read the Book</button>
+        <button
+          className="dark-blue-button">
+          THE BOOK OF CAT
+        </button>
       </NavLink>
     </div>
   );

@@ -11,6 +11,14 @@ function Book() {
   const savedFacts = useSelector((state) => state.book.facts);
   const [fact, setFact] = useState("");
   const dispatch = useDispatch();
+
+  const checkPath = () => {
+    return (dayNum === 6) ?
+      "/story/finale"
+    :
+    `/story/${dayNum + 1}/choices`
+  }
+
   const getFact = async () => {
     try {
       const response = await fetch("https://meowfacts.herokuapp.com/");
@@ -20,6 +28,7 @@ function Book() {
       console.log(error);
     }
   };
+
   useEffect(() => {
     getFact();
   }, []);
@@ -27,26 +36,41 @@ function Book() {
   return (
     <>
       <Route exact path="/book">
-        <p className="fact-text">{fact}</p>
-        <NavLink to={`/story/${dayNum + 1}/choices`}>
-          <button>Close Book</button>
-        </NavLink>
-        <button onClick={getFact}>Get a new fact!</button>
-        {!savedFacts.includes(fact) && (
-          <button className="save-fact" onClick={() => dispatch(addFact(fact))}>
-            Bookmark Fact
-          </button>
-        )}
-        {savedFacts.includes(fact) && (
-          <button onClick={() => dispatch(removeFact(fact))}>
-            Remove Bookmark
-          </button>
-        )}
-        {savedFacts[0] && (
-          <NavLink to="/book/pages">
-            <button>My Bookmarks</button>
-          </NavLink>
-        )}
+        <div className="book-container">
+          <p className="fact-text">{fact}</p>
+          <div className="book-btn-container">
+            <NavLink to={checkPath}>
+              <button 
+                className="blue-button">
+                BACK
+              </button>
+            </NavLink>
+            <button
+              className="yellow-button"
+              onClick={getFact}>
+              NEW FACT
+            </button>
+            {savedFacts[0] && (
+              <NavLink to="/book/pages">
+                <button className="yellow-button">MY BOOKMARKS</button>
+              </NavLink>
+            )}
+            {!savedFacts.includes(fact) && (
+              <button 
+                className="save-button"
+                onClick={() => dispatch(addFact(fact))}>
+                BOOKMARK
+              </button>
+            )}
+            {savedFacts.includes(fact) && (
+              <button 
+                className="remove-button" 
+                onClick={() => dispatch(removeFact(fact))}>
+                REMOVE
+              </button>
+            )}
+          </div>
+        </div>
       </Route>
       <Route path="/book/pages">
         <Page />

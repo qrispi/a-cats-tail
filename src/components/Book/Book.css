@@ -1,4 +1,29 @@
 .fact-text {
   font-size: 26px;
-  margin-top: 12vh;
+}
+
+.save-button {
+  background-color: #41B548;
+}
+
+.remove-button {
+  background-color: #ED1A25;
+}
+
+.book-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  height: 44vh;
+}
+
+.book-btn-container {
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+}
+
+.book-btn-container button {
+  margin: 0 10px;
 }

@@ -1,5 +1,5 @@
-.intro {
-  text-align: center;
+.adopt-text {
+  font-size: 40px;
 }
 
 .name-form {
@@ -13,12 +13,32 @@
   margin-top: 2vh;
 }
 
+.wizard-gif {
+  margin: 8vh 2vh 0;
+}
+
+.wizard-text {
+  font-size: 30px;
+}
+
+.start-button {
+  margin-top: 3vh;
+}
+
 .finale-text {
-  text-align: center;
-  font-size: 26px;
+  font-size: 10px;
   margin-top: 10vh;
 }
 
 .name-container {
   display: flex;
+}
+
+.finale-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  height: 53vh;
+  margin: 0 2vw;
 }

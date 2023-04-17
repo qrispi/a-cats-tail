@@ -78,7 +78,7 @@ function Story() {
                     className="top-margin"
                     onClick={(event) => inputCatName(event)}
                   >
-                    Submit
+                    ⤏
                   </button>
                 </div>
               </form>

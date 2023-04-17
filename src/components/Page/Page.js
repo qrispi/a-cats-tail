@@ -30,7 +30,7 @@ function Page() {
         </NavLink>
         {pageNum > 0 && (
           <button style={{ display: factDisplay }} onClick={() => turnPage(-1)}>
-            Prev Page
+            ⤎
           </button>
         )}
 
@@ -47,7 +47,7 @@ function Page() {
         )}
         {savedFacts.length >= pageNum + 2 && (
           <button style={{ display: factDisplay }} onClick={() => turnPage(1)}>
-            Next Page
+            ⤏
           </button>
         )}
         <button
@@ -61,7 +61,7 @@ function Page() {
             }
           }}
         >
-          Previous page
+          ⤎
         </button>
       </div>
     </>

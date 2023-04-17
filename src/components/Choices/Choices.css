@@ -3,9 +3,14 @@
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
-  height: 250px;
+  height: 380px;
 }
 
-.choice-btns-container button {
-  font-size: 18px;
+.book-button {
+  background-color: #008A91;
+  color: white;
+}
+
+.choice-button {
+  background-color: #FFD20A;
 }

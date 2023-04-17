@@ -18,25 +18,25 @@ function Choices() {
       <div className="choice-btns-container">
         <NavLink to={`/story/${dayNum + 1}/result/good`}>
           <button
-            id="goodButton"
+            className="choice-button"
             onClick={() => dispatch(incrementCatMorality())}
           >
             {story[dayNum].goodChoice}
           </button>
         </NavLink>
         <NavLink to={`/story/${dayNum + 1}/result/neutral`}>
-          <button id="neutralButton">{story[dayNum].neutralChoice}</button>
+          <button className="choice-button">{story[dayNum].neutralChoice}</button>
         </NavLink>
         <NavLink to={`/story/${dayNum + 1}/result/evil`}>
           <button
-            id="evilButton"
+            className="choice-button"
             onClick={() => dispatch(decrementCatMorality())}
           >
             {story[dayNum].evilChoice}
           </button>
         </NavLink>
         <NavLink to="/book">
-          <button>Consult The Cat Fact Book</button>
+          <button className="book-button">Consult The Book of Cat</button>
         </NavLink>
       </div>
     </>

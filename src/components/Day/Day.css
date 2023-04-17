@@ -1,3 +1,21 @@
 .story-text {
-  font-size: 24px;
+  font-size: 30px;
+}
+
+.day-gif {
+  height: 30vh;
+  width: 30vh;
+  margin: 3vh 2vh 0;
+}
+
+.day-text {
+  /* margin-top: 16vh; */
+}
+
+.day-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  height: 53vh;
 }

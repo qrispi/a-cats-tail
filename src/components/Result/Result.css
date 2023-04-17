@@ -1,8 +1,15 @@
-p {
+/* p {
   text-align: center;
-}
+} */
 
 .result-text {
-  /* font-size: 18px; */
-  margin-top: 12vh;
+  font-size: 35px;
+}
+
+.result-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  height: 58vh;
+  margin: 0 3vw;
 }

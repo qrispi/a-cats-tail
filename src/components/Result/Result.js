@@ -8,7 +8,6 @@ import { increment } from "../../features/daySlice";
 function Result({type}) {
   const dayNum = useSelector((state) => state.day.value);
   const story = useSelector((state) => state.storyline);
-  const checkCatName = useSelector((state) => state.cat.name);
   const dispatch = useDispatch();
 
   const getNextDay = dayNum < 5 ? `/story/${dayNum + 1}/day` : "/story/";
@@ -18,7 +17,7 @@ function Result({type}) {
   }
 
   return (
-    <>
+    <div className="result-container">
       <p className="result-text">{story[dayNum][getResult(type)]}</p>
       <NavLink to={getNextDay}>
         <button 
@@ -27,7 +26,7 @@ function Result({type}) {
           CONTINUE
         </button>
       </NavLink>
-    </>
+    </div>
   );
 }
 

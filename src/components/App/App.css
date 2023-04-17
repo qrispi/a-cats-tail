@@ -19,7 +19,7 @@
   position: relative;
   bottom: 30px;
   height: 64vh;
-  width: 40%;
+  width: 38%;
   padding: 0 20px;
 }
 
@@ -49,12 +49,4 @@
 .dark-blue-button {
   background-color: #313677;
   color: white;
-}
-
-.wizard-gif {
-  margin: 8vh 2vh 0;
-}
-
-.start-button {
-  margin-top: 3vh;
 }

@@ -17,9 +17,9 @@ function Page() {
   };
 
   return (
-    <>
-      <h2>Page {pageNum + 1}</h2>
-      <p style={{ display: factDisplay }}>{savedFacts[pageNum]}</p>
+    <div className="page-container">
+      <h2 style={{ margin: 0 }}>Page {pageNum + 1}</h2>
+      <p style={{ display: factDisplay, fontSize: "26px" }}>{savedFacts[pageNum]}</p>
       <p style={{ display: errorDisplay }}>
         You ripped out this page!
       </p>
@@ -76,7 +76,7 @@ function Page() {
           BACK
         </button>
       </div>
-    </>
+    </div>
   );
 }
 

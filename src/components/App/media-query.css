@@ -27,6 +27,40 @@
   }
 }
 
+@media (min-width: 1101px) and (max-width: 1400px) {
+  .play-screen {
+    width: 53%;
+    height: 58vh;
+  }
+
+  .title {
+    margin-bottom: 10vh;
+  }
+
+  .day-container {
+    height: 38vh;
+  }
+
+  .day-text {
+    font-size: 5rem;
+    margin-top: -5vh;
+  }
+
+  .result-container {
+    height: 40vh;
+  }
+
+  .finale-container {
+    margin-top: -5vh;
+    height: 40vh;
+  }
+
+  .finale-type-container img {
+    width: 300px;
+    margin-top: -10vh;
+  }
+}
+
 /* Mobile */
 @media only screen and (max-width: 800px) {
   .frame {

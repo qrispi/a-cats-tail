@@ -75,10 +75,10 @@ function Story() {
                     required
                   />
                   <button
-                    className="top-margin"
+                    className="top-margin blue-button"
                     onClick={(event) => inputCatName(event)}
                   >
-                    Submit
+                    ⤏
                   </button>
                 </div>
               </form>
@@ -90,7 +90,10 @@ function Story() {
                 }
                 setCatName("");
               }}>
-                <button>START GAME</button>
+                <button
+                  className="blue-button">
+                  START GAME
+                </button>
               </NavLink>}
             </div>
           )}
@@ -104,7 +107,10 @@ function Story() {
               </p>
 
               <NavLink to={`/story/finale/`}>
-                <button>Let's find out!</button>
+                <button
+                  className="blue-button">
+                  CONTINUE
+                </button>
               </NavLink>
             </>
           )}

@@ -18,15 +18,18 @@ function Day() {
     }, 3000);
 }
 
-return (
-  <>
-    {dayAnimations}
-    <p className="story-text">{story[dayNum].story}</p>
-    <NavLink to={`/story/${dayNum + 1}/choices`}>
-      <button>CONTINUE</button>
-    </NavLink>
-  </>
-);
+  return (
+    <>
+      {dayAnimations}
+      <p className="story-text">{story[dayNum].story}</p>
+      <NavLink to={`/story/${dayNum + 1}/choices`}>
+        <button
+          className="blue-button">
+          CONTINUE
+        </button>
+      </NavLink>
+    </>
+  );
 }
 
 export default Day;

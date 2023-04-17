@@ -3,9 +3,5 @@
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
-  height: 250px;
-}
-
-.choice-btns-container button {
-  font-size: 18px;
+  height: 380px;
 }

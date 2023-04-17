@@ -99,7 +99,7 @@ describe('As a user, I should be able to start the game from the main page, clic
       cy.contains('h2', 'DAY 4')
       cy.contains('p', 'replaceME\'s physical abilities have become even more enhanced, allowing them to run insanely fast and jump to the top of buildings.')
       cy.get('button').eq(0).should('have.text', 'CONTINUE').click()
-      cy.get('button').eq(0).should('have.text', 'You take replaceMe on a fun adventure, going hiking and then bungee jumping.').click()
+      cy.get('button').eq(0).should('have.text', 'You take replaceME on a fun adventure, going hiking and then bungee jumping.').click()
       cy.contains('p', 'replaceME has a great time and your bond strengthens.')
       cy.get('button').eq(0).should('have.text', 'CONTINUE').click()
 

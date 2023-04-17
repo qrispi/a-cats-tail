@@ -1,5 +1,6 @@
 .page-btn-container {
   display: flex;
+  justify-content: center;
 }
 
 .page-btn-container button {
@@ -8,4 +9,4 @@
 
 p {
   text-align: center;
-} 
+}

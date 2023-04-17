@@ -21,37 +21,48 @@ function Page() {
       <h2>Page {pageNum + 1}</h2>
       <p style={{ display: factDisplay }}>{savedFacts[pageNum]}</p>
       <p style={{ display: errorDisplay }}>
-        Oh no! You ripped out this page! Use the buttons to go to a different
-        page.
+        You ripped out this page!
       </p>
       {!savedFacts.length && <p>No more facts saved.</p>}
       <div className="page-btn-container">
-        <NavLink to="/book">
-          <button style={{ display: factDisplay }}>BACK</button>
+        <NavLink to="/book" style={{textDecoration: "none"}}>
+          <button
+            className="blue-button"
+            style={{ display: factDisplay }}>
+            BACK
+          </button>
         </NavLink>
         {pageNum > 0 && (
-          <button style={{ display: factDisplay }} onClick={() => turnPage(-1)}>
-            Prev Page
+          <button 
+            className="dark-blue-button"
+            style={{ display: factDisplay }} 
+            onClick={() => turnPage(-1)}>
+            ⤎
           </button>
         )}
 
         {savedFacts.includes(savedFacts[pageNum]) && (
           <button
+            className="remove-button"
             style={{ display: factDisplay }}
             onClick={() => {
               setFactDisplay("none");
               setErrorDisplay("block");
             }}
           >
-            Remove Bookmark
+            REMOVE
           </button>
         )}
         {savedFacts.length >= pageNum + 2 && (
-          <button style={{ display: factDisplay }} onClick={() => turnPage(1)}>
-            Next Page
+          <button 
+            className="dark-blue-button"
+            style={{ display: factDisplay }} 
+            onClick={() => turnPage(1)}>
+              ⤏
           </button>
         )}
         <button
+          className="blue-button"
           style={{ display: errorDisplay }}
           onClick={() => {
             setFactDisplay("block");
@@ -62,7 +73,7 @@ function Page() {
             }
           }}
         >
-          Previous page
+          BACK
         </button>
       </div>
     </>

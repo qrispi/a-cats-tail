@@ -15,7 +15,7 @@ const storyline = [
     evilChoice: "Interrogate replaceME how they gained their abilities and what their plans are for the future.",
     goodReaction: "replaceME chuckles and admires you thinking outside of the box. You both soon realize the stock market is all random anyway.",
     neutralReaction: "replaceME continues to try to communicate with you but seems annoyed.",
-    evilReaction: "replaceME gets aggrivated by your insolence ",
+    evilReaction: "replaceME gets aggravated by your insolence ",
   },
   {
     story: "replaceME seems to be able to sense odd things, such as the locations of people or things.",
@@ -28,7 +28,7 @@ const storyline = [
   },
   {
     story: "replaceME's physical abilities have become even more enhanced, allowing them to run insanely fast and jump to the top of buildings.",
-    goodChoice: "You take replaceMe on a fun adventure, going hiking and then bungee jumping.",
+    goodChoice: "You take replaceME on a fun adventure, going hiking and then bungee jumping.",
     neutralChoice: "Use replaceME's abilities to compete in a cat show agility event.",
     evilChoice: "Ask replaceME to go on a bank heist for you.",
     goodReaction: "replaceME has a great time and your bond strengthens.",

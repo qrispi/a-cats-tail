@@ -21,8 +21,7 @@ function Page() {
       <h2>Page {pageNum + 1}</h2>
       <p style={{ display: factDisplay }}>{savedFacts[pageNum]}</p>
       <p style={{ display: errorDisplay }}>
-        Oh no! You ripped out this page! Use the buttons to go to a different
-        page.
+        You ripped out this page!
       </p>
       {!savedFacts.length && <p>No more facts saved.</p>}
       <div className="page-btn-container">

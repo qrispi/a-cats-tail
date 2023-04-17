@@ -1,0 +1,19 @@
+.finale-type-container {
+  margin: 0;
+}
+
+img {
+  width: 180px;
+  height: auto;
+  z-index: 1;
+  margin: -10px auto -30px;
+  position: relative;
+}
+
+.finale-text {
+  font-size: 22px;
+}
+
+button {
+  margin: 0 10px;
+}

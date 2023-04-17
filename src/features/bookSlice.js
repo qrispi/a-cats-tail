@@ -7,9 +7,12 @@ export const bookSlice = createSlice({
     addFact: (state, action) => {
       state.facts = [...state.facts, action.payload];
     },
+    removeFact: (state, action) => {
+      state.facts = state.facts.filter(fact => fact !== action.payload)
+    },
   },
 });
 
-export const { addFact } = bookSlice.actions;
+export const { addFact, removeFact } = bookSlice.actions;
 
 export default bookSlice.reducer;

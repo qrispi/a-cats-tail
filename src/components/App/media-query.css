@@ -67,11 +67,13 @@
 @media only screen and (max-width: 500px) {
   .frame {
     background: none;
+    background-color: #fff !important;
+    border: none;
   }
 
   .play-screen {
     width: 100%;
-    border: none;
+    height: 80vh;
   }
 
   .choice-btns-container {
@@ -80,5 +82,18 @@
 
   img {
     margin-top: 20px;
+  }
+
+  .book-btn-container {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .book-btn-container button {
+    margin: 7px 0;
+  }
+
+  .book-container {
+    height: 60vh;
   }
 }

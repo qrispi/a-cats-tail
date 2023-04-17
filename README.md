@@ -1,5 +1,7 @@
 # A Cat's Tail
 
+### [Play The Game Here](https://a-cats-tail.vercel.app/story)
+
 ## Abstract
 
 Have you ever thought to yourself, is my cat evil? Do you yearn for the nostalgia of taking care of a pixelated virtual pet? Well A Cat's Tail is there for you in your time of need. Take care of a virtual cat, and your choices just might affect the fate of the entire world. A new-age Tamagotchi for old-school gamers, with a twist.

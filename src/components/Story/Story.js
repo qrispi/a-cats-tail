@@ -14,7 +14,10 @@ function Story() {
   const story = useSelector((state) => state.storyline);
   const storedName = useSelector((state) => state.cat.name);
   const [catName, setCatName] = useState("");
-  const [introAnimations, setIntroAnimations] = useState(<img src={require("../../images/wizard.gif")} alt="Wizard" />);
+  const [introAnimations, setIntroAnimations] = useState(<>
+  <img src={require("../../images/wizard.gif")} alt="Wizard" /> 
+  <p>A strange man in a pointy hat appears and with a twinkle in his eye hands you a cat and a book called "The Book of Cat"</p>
+  </>);
   const [introComplete, setIntroComplete] = useState(false);
   const dispatch = useDispatch();
 
@@ -32,12 +35,9 @@ function Story() {
 
   const getIntroAnimations = () => {
       setTimeout(() => {
-        setIntroAnimations(<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>)
-      }, 3000);
-      setTimeout(() => {
         setIntroAnimations(<img src={require("../../images/neutral-cat.gif")} alt="Cat" />)
         setIntroComplete(true)
-      }, 10000);
+      }, 5000);
   }
 
   const inputCatName = (event) => {

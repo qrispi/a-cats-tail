@@ -20,7 +20,11 @@ function Result({type}) {
     <>
       <p className="result-text">{story[dayNum][getResult(type)]}</p>
       <NavLink to={getNextDay}>
-        <button onClick={() => dispatch(increment())}>CONTINUE</button>
+        <button 
+          className="blue-button"
+          onClick={() => dispatch(increment())}>
+          CONTINUE
+        </button>
       </NavLink>
     </>
   );

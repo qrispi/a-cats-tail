@@ -11,8 +11,10 @@ body {
   overflow: hidden;
   background-color: black;
 }
+
 button {
   font-family: "VT323", monospace;
   font-size: x-large;
   cursor: pointer;
+  border-radius: 5px;
 }

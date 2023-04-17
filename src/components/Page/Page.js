@@ -25,32 +25,44 @@ function Page() {
       </p>
       {!savedFacts.length && <p>No more facts saved.</p>}
       <div className="page-btn-container">
-        <NavLink to="/book">
-          <button style={{ display: factDisplay }}>BACK</button>
+        <NavLink to="/book" style={{textDecoration: "none"}}>
+          <button
+            className="blue-button"
+            style={{ display: factDisplay }}>
+            BACK
+          </button>
         </NavLink>
         {pageNum > 0 && (
-          <button style={{ display: factDisplay }} onClick={() => turnPage(-1)}>
+          <button 
+            className="dark-blue-button"
+            style={{ display: factDisplay }} 
+            onClick={() => turnPage(-1)}>
             ⤎
           </button>
         )}
 
         {savedFacts.includes(savedFacts[pageNum]) && (
           <button
+            className="remove-button"
             style={{ display: factDisplay }}
             onClick={() => {
               setFactDisplay("none");
               setErrorDisplay("block");
             }}
           >
-            Remove Bookmark
+            REMOVE
           </button>
         )}
         {savedFacts.length >= pageNum + 2 && (
-          <button style={{ display: factDisplay }} onClick={() => turnPage(1)}>
-            ⤏
+          <button 
+            className="dark-blue-button"
+            style={{ display: factDisplay }} 
+            onClick={() => turnPage(1)}>
+              ⤏
           </button>
         )}
         <button
+          className="blue-button"
           style={{ display: errorDisplay }}
           onClick={() => {
             setFactDisplay("block");
@@ -61,7 +73,7 @@ function Page() {
             }
           }}
         >
-          ⤎
+          BACK
         </button>
       </div>
     </>

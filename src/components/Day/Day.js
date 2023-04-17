@@ -6,11 +6,11 @@ import { useSelector } from "react-redux";
 function Day() {
   const dayNum = useSelector((state) => state.day.value);
   const story = useSelector((state) => state.storyline);
-  const [dayAnimations, setDayAnimations] = useState(<img className="day-gif" src={require("../../images/day-night.gif")} style={{ height: 150 }} alt="Day Cycle" />)
+  const [dayAnimations, setDayAnimations] = useState(<img className="day-gif" src={require("../../images/day-night.gif")}  alt="Day Cycle" />)
 
   useEffect(() => {
     getDayAnimation()
-  }, [])
+  })
 
   const getDayAnimation = () => {
     setTimeout(() => {

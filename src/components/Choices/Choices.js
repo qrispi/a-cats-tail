@@ -2,16 +2,13 @@ import React from "react";
 import "./Choices.css";
 import { NavLink } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
-import {
-  incrementCatMorality,
-  decrementCatMorality,
-} from "../../features/catSlice";
+import { incrementCatMorality, decrementCatMorality } from "../../features/catSlice";
 
 function Choices() {
   const dayNum = useSelector((state) => state.day.value);
   const story = useSelector((state) => state.storyline);
-  const checkCatName = useSelector((state) => state.cat.name);
   const dispatch = useDispatch();
+  
   return (
     <>
       <h3 className="choice-title">What do you do?</h3>

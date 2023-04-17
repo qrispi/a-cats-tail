@@ -8,10 +8,6 @@
   margin: 3vh 2vh 0;
 }
 
-.day-text {
-  /* margin-top: 16vh; */
-}
-
 .day-container {
   display: flex;
   flex-direction: column;

@@ -21,6 +21,7 @@ function App() {
           </Route>
           <Route path="/book">
             <h1 className="book-title">The Book of Cat</h1>
+            <img src={require("../../images/book.gif")} alt="Book" style={{height: 100 }} />
             <Book />
           </Route>
           <Redirect from="/" to="/story" />

@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useEffect, useState} from "react";
 import "./Day.css";
 import { NavLink } from "react-router-dom";
 import { useSelector } from "react-redux";
@@ -6,11 +6,23 @@ import { useSelector } from "react-redux";
 function Day() {
   const dayNum = useSelector((state) => state.day.value);
   const story = useSelector((state) => state.storyline);
-  const checkCatName = useSelector((state) => state.cat.name);
+  const [dayAnimations, setDayAnimations] = useState(<img src={require("../../images/day-night.gif")} style={{ height: 150 }} alt="Day Cycle" />)
 
+  useEffect(() => {
+    getDayAnimation()
+  }, [])
+
+  const getDayAnimation = () => {
+      setTimeout(() => {
+        setDayAnimations(<img style={{ height: 150 }}/>)
+      }, 3200);
+  }
+
+  
   return (
     <>
       <h2>DAY {dayNum + 1}</h2>
+      {dayAnimations}
       <p>{story[dayNum].story}</p>
       <NavLink to={`/story/${dayNum + 1}/choices`}>
         <button>CONTINUE</button>

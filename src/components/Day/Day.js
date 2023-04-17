@@ -13,15 +13,13 @@ function Day() {
   }, [])
 
   const getDayAnimation = () => {
-      setTimeout(() => {
-        setDayAnimations(<img style={{ height: 150 }}/>)
-      }, 3200);
-  }
+    setTimeout(() => {
+      setDayAnimations(<h2 className="day-text">DAY {dayNum + 1}</h2>)
+    }, 3000);
+}
 
-  
   return (
     <>
-      <h2 className="day-text">DAY {dayNum + 1}</h2>
       {dayAnimations}
       <p className="story-text">{story[dayNum].story}</p>
       <NavLink to={`/story/${dayNum + 1}/choices`}>

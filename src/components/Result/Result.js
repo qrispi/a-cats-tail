@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types"
 import "./Result.css";
 import { NavLink } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
@@ -31,3 +32,7 @@ function Result({type}) {
 }
 
 export default Result;
+
+Result.propTypes = {
+  type: PropTypes.string.isRequired
+};

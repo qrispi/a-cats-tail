@@ -29,23 +29,34 @@ function Book() {
       <Route exact path="/book">
         <p className="fact-text">{fact}</p>
         <NavLink to={`/story/${dayNum + 1}/choices`}>
-          <button>Close Book</button>
+          <button 
+            className="blue-button">
+            BACK
+          </button>
         </NavLink>
-        <button onClick={getFact}>Get a new fact!</button>
+        <button
+          className="yellow-button"
+          onClick={getFact}>
+            NEW FACT
+        </button>
+        {savedFacts[0] && (
+          <NavLink to="/book/pages">
+            <button className="yellow-button">MY BOOKMARKS</button>
+          </NavLink>
+        )}
         {!savedFacts.includes(fact) && (
-          <button className="save-fact" onClick={() => dispatch(addFact(fact))}>
-            Bookmark Fact
+          <button 
+            className="save-button"
+            onClick={() => dispatch(addFact(fact))}>
+            BOOKMARK
           </button>
         )}
         {savedFacts.includes(fact) && (
-          <button onClick={() => dispatch(removeFact(fact))}>
-            Remove Bookmark
+          <button 
+            className="remove-button" 
+            onClick={() => dispatch(removeFact(fact))}>
+            REMOVE
           </button>
-        )}
-        {savedFacts[0] && (
-          <NavLink to="/book/pages">
-            <button>My Bookmarks</button>
-          </NavLink>
         )}
       </Route>
       <Route path="/book/pages">

@@ -15,7 +15,7 @@ const storyline = [
     evilChoice: "Interrogate replaceME how they gained their abilities and what their plans are for the future.",
     goodReaction: "replaceME chuckles and admires you thinking outside of the box. You both soon realize the stock market is all random anyway.",
     neutralReaction: "replaceME continues to try to communicate with you but seems annoyed.",
-    evilReaction: "replaceME gets aggrivated by your insolence ",
+    evilReaction: "replaceME gets aggravated by your insolence ",
   },
   {
     story: "replaceME seems to be able to sense odd things, such as the locations of people or things.",

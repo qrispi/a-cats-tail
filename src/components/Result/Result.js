@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types"
 import "./Result.css";
 import { NavLink } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
@@ -20,10 +21,18 @@ function Result({type}) {
     <>
       <p className="result-text">{story[dayNum][getResult(type)]}</p>
       <NavLink to={getNextDay}>
-        <button onClick={() => dispatch(increment())}>CONTINUE</button>
+        <button 
+          className="blue-button"
+          onClick={() => dispatch(increment())}>
+          CONTINUE
+        </button>
       </NavLink>
     </>
   );
 }
 
 export default Result;
+
+Result.propTypes = {
+  type: PropTypes.string.isRequired
+};

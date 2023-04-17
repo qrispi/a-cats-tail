@@ -39,6 +39,7 @@ function Finale() {
 
       <NavLink to="/story/">
         <button
+          className="blue-button"
           onClick={() => {
             dispatch(resetDay());
             dispatch(resetCatMorality());
@@ -46,12 +47,15 @@ function Finale() {
             dispatch(updateCatName(""));
           }}
         >
-          Play Again
+          PLAY AGAIN
         </button>
       </NavLink>
 
       <NavLink to="/book">
-        <button>Read the Book</button>
+        <button
+          className="dark-blue-button">
+          THE BOOK OF CAT
+        </button>
       </NavLink>
     </div>
   );

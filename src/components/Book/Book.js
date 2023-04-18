@@ -13,24 +13,30 @@ function Book() {
   const dispatch = useDispatch();
 
   const checkPath = () => {
-    return (dayNum === 6) ?
-      "/story/finale"
-    :
-    `/story/${dayNum + 1}/choices`
-  }
+    return dayNum === 6 ? "/story/finale" : `/story/${dayNum + 1}/choices`;
+  };
 
   const getFact = async () => {
     try {
       const response = await fetch("https://meowfacts.herokuapp.com/");
       const catFact = await response.json();
-      setFact(catFact.data[0]);
+      checkFact(catFact);
     } catch (error) {
       console.log(error);
     }
   };
 
+  const checkFact = (fetchedFact) => {
+    if (fetchedFact.data[0].length > 200) {
+      getFact();
+    } else {
+      setFact(fetchedFact.data[0]);
+    }
+  };
+
   useEffect(() => {
     getFact();
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (
@@ -40,14 +46,9 @@ function Book() {
           <p className="fact-text">{fact}</p>
           <div className="book-btn-container">
             <NavLink to={checkPath}>
-              <button 
-                className="blue-button">
-                BACK
-              </button>
+              <button className="blue-button">BACK</button>
             </NavLink>
-            <button
-              className="yellow-button"
-              onClick={getFact}>
+            <button className="yellow-button" onClick={getFact}>
               NEW FACT
             </button>
             {savedFacts[0] && (
@@ -56,16 +57,18 @@ function Book() {
               </NavLink>
             )}
             {!savedFacts.includes(fact) && (
-              <button 
+              <button
                 className="save-button"
-                onClick={() => dispatch(addFact(fact))}>
+                onClick={() => dispatch(addFact(fact))}
+              >
                 BOOKMARK
               </button>
             )}
             {savedFacts.includes(fact) && (
-              <button 
-                className="remove-button" 
-                onClick={() => dispatch(removeFact(fact))}>
+              <button
+                className="remove-button"
+                onClick={() => dispatch(removeFact(fact))}
+              >
                 REMOVE
               </button>
             )}
